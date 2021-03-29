@@ -22,7 +22,7 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $gc  = new \GuzzleHttp\Client();
         $df  = new DataFactory();
         $c   = new Connection($gc, $df);
-        $url = 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
+        $url = 'https://query.wikidata.org/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
 
         $s  = $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
         $d1 = iterator_to_array($s);
@@ -68,15 +68,35 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $gc  = new \GuzzleHttp\Client();
         $df  = new DataFactory();
         $c   = new Connection($gc, $df);
-        $url = 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=ask%20%7B%3Chttp%3A%2F%2Ffoo%3E%20%3Chttp%3A%2F%2Fbar%3E%20%3Chttp%3A%2F%2Fbaz%3E%7D';
+        $url = 'https://query.wikidata.org/sparql?query=ask%20%7B%3Chttp%3A%2F%2Ffoo%3E%20%3Chttp%3A%2F%2Fbar%3E%20%3Chttp%3A%2F%2Fbaz%3E%7D';
         $this->assertFalse($c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url)));
+    }
 
-        $url = 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
+    public function testExceptions(): void {
+        $gc = new \GuzzleHttp\Client();
+        $df  = new DataFactory();
+        $c  = new Connection($gc, $df);
+
+        $url = 'https://query.wikidata.org/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
         try {
             $c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url));
             $this->assertTrue(false);
         } catch (SparqlException $ex) {
             $this->assertStringStartsWith('Not an ASK query response', $ex->getMessage());
+        }
+
+        $url = 'https://query.wikidata.org/sparql?query=wrongQuery';
+        try {
+            $c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url));
+            $this->assertTrue(false);
+        } catch (SparqlException $ex) {
+            $this->assertStringStartsWith('Query execution failed with HTTP', $ex->getMessage());
+        }
+        try {
+            $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+            $this->assertTrue(false);
+        } catch (SparqlException $ex) {
+            $this->assertStringStartsWith('Query execution failed with HTTP', $ex->getMessage());
         }
     }
 }

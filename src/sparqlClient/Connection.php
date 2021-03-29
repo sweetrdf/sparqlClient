@@ -32,7 +32,7 @@ class Connection {
         $request  = $request->withHeader('Accept', 'application/json');
         $response = $this->client->sendRequest($request);
         if ($response->getStatusCode() !== 200) {
-            throw new SparqlException($response);
+            throw new SparqlException("Query execution failed with HTTP " . $response->getStatusCode() . " " . $response->getReasonPhrase());
         }
         return new Statement($response, $this->dataFactory);
     }
@@ -41,7 +41,7 @@ class Connection {
         $request  = $request->withHeader('Accept', 'application/json');
         $response = $this->client->sendRequest($request);
         if ($response->getStatusCode() !== 200) {
-            throw new SparqlException($response);
+            throw new SparqlException("Query execution failed with HTTP " . $response->getStatusCode() . " " . $response->getReasonPhrase());
         }
         // https://www.w3.org/TR/sparql11-results-json/
         $body   = (string) $response->getBody();
