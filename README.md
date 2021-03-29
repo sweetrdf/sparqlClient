@@ -18,9 +18,9 @@ A SPARQL client library for the [rdfInterface](https://github.com/sweetrdf/rdfIn
 
 ## Automatically generated documentation
 
-https://sweetrdf.github.io/sparqlClient/
+https://sweetrdf.github.io/sparqlClient/namespaces/sparqlclient.html
 
-It's very incomplite but better than nothing.\
+It's very incomplete but better than nothing.\
 [RdfInterface](https://github.com/sweetrdf/rdfInterface/) documentation is included which provides documentation for terms (objects representing RDF named nodes, literals, etc.).
 
 ## Usage
