@@ -9,6 +9,7 @@
 namespace sparqlClient;
 
 use PDO;
+use quickRdf\DataFactory;
 
 /**
  * Description of IntegrationTest
@@ -19,7 +20,7 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
 
     public function testSelect(): void {
         $gc  = new \GuzzleHttp\Client();
-        $df  = new \simpleRdf\DataFactory();
+        $df  = new DataFactory();
         $c   = new Connection($gc, $df);
         $url = 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
 
@@ -65,7 +66,7 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
 
     public function testAsk(): void {
         $gc  = new \GuzzleHttp\Client();
-        $df  = new \simpleRdf\DataFactory();
+        $df  = new DataFactory();
         $c   = new Connection($gc, $df);
         $url = 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=ask%20%7B%3Chttp%3A%2F%2Ffoo%3E%20%3Chttp%3A%2F%2Fbar%3E%20%3Chttp%3A%2F%2Fbaz%3E%7D';
         $this->assertFalse($c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url)));
