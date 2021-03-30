@@ -54,8 +54,8 @@ foreach ($results as $i) {
   and [SPARQL results format specification](https://www.w3.org/TR/sparql11-results-json/)
   tell nothing about the SPARQL endpoint API.
   It's only an unwritten convention that SPARQL endpoints accept SELECT and ASK queries as a `query` GET/POST parameter.\
-  Anyway this will be addressed in the future by providin a specialized connection class which will assume sane defaults and make running queries easier.
+  Anyway this will be addressed in the future by providing a specialized connection class which will assume sane defaults and make running queries easier.
 * **What about parameterized queries?**\
   They are expected to be added in the future.
-* **What about integration of INSERT/UPDATE/DELETE queries with the \rdfInterface\Dataset?**\
+* **What about integration of INSERT/UPDATE/DELETE queries with the \rdfInterface\Dataset or \rdfInterface\QuadIterator?**\
   This is expected to be added in the future.
