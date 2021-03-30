@@ -10,8 +10,7 @@ A SPARQL client library for the [rdfInterface](https://github.com/sweetrdf/rdfIn
 
 * It can work with any PSR-7 and PSR-15 compliant HTTP library.
 * It can work with huge query results.\
-  The response is parsed parsed as a stream and the parsing is done in a lazy way
-  (the next row is parsed only when you try to read it).
+  The response is parsed in a lazy way as a stream (the next row is parsed only when you try to read it).
   This assures iterating trough results without acumulating them in an array has neglectable memory footprint.
 
 ## Installation
