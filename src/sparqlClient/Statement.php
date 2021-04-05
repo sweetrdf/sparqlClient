@@ -67,9 +67,8 @@ class Statement implements \Iterator {
                     return $row[array_keys($row)[0]];
                 default;
             }
-        } else {
-            return false;
         }
+        return false;
     }
 
     public function fetchColumn(): object | false {
