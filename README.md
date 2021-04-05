@@ -35,7 +35,7 @@ include 'vendor/autoload.php';
 
 $httpClient  = new \GuzzleHttp\Client();
 $dataFactory = new \simpleRdf\DataFactory();
-$connection  = new \sparqlClient\Connection($gc, $df);
+$connection  = new \sparqlClient\Connection($httpClient, $dataFactory);
 $query       = 'select * where {?a ?b ?c} limit 10';
 $query       = new \GuzzleHttp\Psr7\Request('GET', 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=' . rawurlencode($query));
 $results     = $connection->query($query);
