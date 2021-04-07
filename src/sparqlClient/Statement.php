@@ -62,6 +62,8 @@ class Statement implements \Iterator {
             switch ($fetchStyle) {
                 case PDO::FETCH_OBJ:
                     return $row;
+                case PDO::FETCH_ASSOC:
+                    return (array) $row;
                 case PDO::FETCH_COLUMN:
                     $row = get_object_vars($row);
                     return $row[array_keys($row)[0]];
