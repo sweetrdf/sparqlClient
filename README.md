@@ -6,9 +6,9 @@
 [![License](https://poser.pugx.org/sweetrdf/sparql-client/license)](https://packagist.org/packages/sweetrdf/sparql-client)
 
 
-A SPARQL client library for the [rdfInterface](https://github.com/sweetrdf/rdfInterface/) ecosystem.
+A SPARQL client library for the [rdfInterface](https://github.com/sweetrdf/rdfInterface/) ecosystem with the API inspired by the PDO.
 
-* It can work with any PSR-7 and PSR-15 compliant HTTP library.
+* It can work with any PSR-17 / PSR-18 compliant HTTP libraries.
 * It can work with huge query results.\
   The response is parsed in a lazy way as a stream (the next row is parsed only when you try to read it).
   This assures iterating trough results without acumulating them in an array has neglectable memory footprint.
@@ -32,30 +32,30 @@ It's very incomplete but better than nothing.\
 
 ```php
 include 'vendor/autoload.php';
-
-$httpClient  = new \GuzzleHttp\Client();
-$dataFactory = new \simpleRdf\DataFactory();
-$connection  = new \sparqlClient\Connection($httpClient, $dataFactory);
-$query       = 'select * where {?a ?b ?c} limit 10';
-$query       = new \GuzzleHttp\Psr7\Request('GET', 'https://arche-sparql.acdh-dev.oeaw.ac.at/sparql?query=' . rawurlencode($query));
-$results     = $connection->query($query);
+$connection = new \sparqlClient\StandardConnection('https://query.wikidata.org/sparql', new \quickRdf\DataFactory());
+$results    = $connection->query('select * where {?a ?b ?c} limit 10');
 foreach ($results as $i) {
     print_r($i);
 }
 ```
 
+### Advanced usage
+
+* You may also provide any PSR-18 HTTP client and/or PSR-17 HTTP request factory to the `\sparqlClient\StandardConnection` constructor.
+  E.g. let's assume your SPARQL endpoint requires authorization and you want to benefit from Guzzle connection allowing to set global request options:
+  ```php
+  $connection = new \sparqlClient\StandardConnection(
+      'https://query.wikidata.org/sparql', 
+      new \quickRdf\DataFactory(),
+      new \GuzzleHttp\Client(['auth' => ['login', 'pswd']])
+  );
+  ```
+* If your SPARQL endpoint doesn't follow the de facto standard of accepting the SPARQL query as the `query` request parameter,
+  you may use the `\sparqlClient\Connection` class which takes PSR-7 requests instead of a query string and allows you to use any specific HTTP request you need.
+
 ## FAQ
 
-* **Why so much code is needed to make a simple SPARQL query?**\
-  First, to allow you to choose HTTP client and RDF terms factory.
-  Second, see the next question.
-* **Why I have to prepare the HTTP request by hand?**\
-  Because both [SPARQL specification](https://www.w3.org/TR/rdf-sparql-query/) 
-  and [SPARQL results format specification](https://www.w3.org/TR/sparql11-results-json/)
-  tell nothing about the SPARQL endpoint API.
-  It's only an unwritten convention that SPARQL endpoints accept SELECT and ASK queries as a `query` GET/POST parameter.\
-  Anyway this will be addressed in the future by providing a specialized connection class which will assume sane defaults and make running queries easier.
 * **What about parameterized queries?**\
-  They are expected to be added in the future.
+  They'll be added in the future.
 * **What about integration of INSERT/UPDATE/DELETE queries with the \rdfInterface\Dataset or \rdfInterface\QuadIterator?**\
-  This is expected to be added in the future.
+  Will be added in the future.
