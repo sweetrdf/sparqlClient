@@ -17,7 +17,8 @@ A SPARQL client library for the [rdfInterface](https://github.com/sweetrdf/rdfIn
 
 * Obtain the [Composer](https://getcomposer.org)
 * Run `composer require sweetrdf/sparql-client`
-* Run `composer require guzzlehttp/guzzle` to install an HTTP client (you can use any client supporting PSR-7 and PSR-15).
+* Run `composer require guzzlehttp/guzzle` to install an HTTP client (you can use any client supporting PSR-18).
+* Run `composer require http-interop/http-factory-guzzle` to install PSR-17 bindinds for Guzzle (you can use any other PSR-17 implementation as well)
 * Run `composer require sweetrdf/quick-rdf` to install RDF terms factory 
   (you can use any terms factory compatible with the [rdfInterface](https://github.com/sweetrdf/rdfInterface/)).
 
