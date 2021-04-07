@@ -65,7 +65,8 @@ class Statement implements \Iterator {
                 case PDO::FETCH_COLUMN:
                     $row = get_object_vars($row);
                     return $row[array_keys($row)[0]];
-                default;
+                default:
+                    throw new \BadMethodCallException('Unsupported fetchStyle parameter value');
             }
         } else {
             return false;
