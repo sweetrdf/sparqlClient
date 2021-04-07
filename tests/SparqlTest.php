@@ -19,27 +19,26 @@ use quickRdf\DataFactory;
 class SparqlTest extends \PHPUnit\Framework\TestCase {
 
     public function testSelect(): void {
-        $gc  = new \GuzzleHttp\Client();
-        $df  = new DataFactory();
-        $c   = new Connection($gc, $df);
-        $url = 'https://query.wikidata.org/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
+        $df    = new DataFactory();
+        $c     = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $query = 'select ?a ?b ?c where {?a ?b ?c} limit 10';
 
-        $s  = $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+        $s  = $c->query($query);
         $d1 = iterator_to_array($s);
 
-        $s  = $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+        $s  = $c->query($query);
         $d2 = $s->fetchAll();
 
-        $s   = $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+        $s   = $c->query($query);
         $d3  = [];
         while ($row = $s->fetch()) {
             $d3[] = $row;
         }
 
-        $s  = $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+        $s  = $c->query($query);
         $c1 = $s->fetchAll(PDO::FETCH_COLUMN);
 
-        $s   = $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+        $s   = $c->query($query);
         $c2  = [];
         while ($col = $s->fetchColumn()) {
             $c2[] = $col;
@@ -65,35 +64,33 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function testAsk(): void {
-        $gc  = new \GuzzleHttp\Client();
-        $df  = new DataFactory();
-        $c   = new Connection($gc, $df);
-        $url = 'https://query.wikidata.org/sparql?query=ask%20%7B%3Chttp%3A%2F%2Ffoo%3E%20%3Chttp%3A%2F%2Fbar%3E%20%3Chttp%3A%2F%2Fbaz%3E%7D';
-        $this->assertFalse($c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url)));
+        $df    = new DataFactory();
+        $c     = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $query = 'ask {<http://foo> <http://bar> <http://baz>}';
+        $this->assertFalse($c->askQuery($query));
     }
 
     public function testExceptions(): void {
-        $gc = new \GuzzleHttp\Client();
-        $df  = new DataFactory();
-        $c  = new Connection($gc, $df);
+        $df = new DataFactory();
+        $c  = new StandardConnection('https://query.wikidata.org/sparql', $df);
 
-        $url = 'https://query.wikidata.org/sparql?query=select%20%3Fa%20%3Fb%20%3Fc%20where%20%7B%3Fa%20%3Fb%20%3Fc%7D%20limit%2010';
+        $query = 'select ?a ?b ?c where {?a ?b ?c} limit 10';
         try {
-            $c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url));
+            $c->askQuery($query);
             $this->assertTrue(false);
         } catch (SparqlException $ex) {
             $this->assertStringStartsWith('Not an ASK query response', $ex->getMessage());
         }
 
-        $url = 'https://query.wikidata.org/sparql?query=wrongQuery';
+        $query = 'wrongQuery';
         try {
-            $c->askQuery(new \GuzzleHttp\Psr7\Request('GET', $url));
+            $c->askQuery($query);
             $this->assertTrue(false);
         } catch (SparqlException $ex) {
             $this->assertStringStartsWith('Query execution failed with HTTP', $ex->getMessage());
         }
         try {
-            $c->query(new \GuzzleHttp\Psr7\Request('GET', $url));
+            $c->query($query);
             $this->assertTrue(false);
         } catch (SparqlException $ex) {
             $this->assertStringStartsWith('Query execution failed with HTTP', $ex->getMessage());
