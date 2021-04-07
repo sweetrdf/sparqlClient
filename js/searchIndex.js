@@ -56,6 +56,46 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/sparqlClient-SparqlRequestException.html#property_response"
         },                {
+            "fqsen": "\\sparqlClient\\StandardConnection",
+            "name": "StandardConnection",
+            "summary": "SPARQL\u0020endpoint\u0020connection\u0020class\u0020assuming\u0020query\u0020can\u0020be\u0020passed\u0020as\u0020a\u0020\u0022query\u0022\nparameter\u0020of\u0020a\u0020POST\u0020request\u0020\u0028which\u0020isn\u0027t\u0020guaranteed\u0020by\u0020any\u0020SPARQL\u0020standard\nbut\u0020is\u0020a\u0020de\u0020facto\u0020standard\u0020for\u0020SPARQL\u0020database\u0020REST\u0020API\u0020implementations\u0029.",
+            "url": "classes/sparqlClient-StandardConnection.html"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#method___construct"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003Aquery\u0028\u0029",
+            "name": "query",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#method_query"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003AaskQuery\u0028\u0029",
+            "name": "askQuery",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#method_askQuery"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003AgetRequest\u0028\u0029",
+            "name": "getRequest",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#method_getRequest"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003A\u0024url",
+            "name": "url",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#property_url"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003A\u0024connection",
+            "name": "connection",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#property_connection"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003A\u0024requestFactory",
+            "name": "requestFactory",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#property_requestFactory"
+        },                {
             "fqsen": "\\sparqlClient\\Statement",
             "name": "Statement",
             "summary": "For\u0020results\u0020data\u0020reference\u0020see\u0020https\u003A\/\/www.w3.org\/TR\/sparql11\u002Dresults\u002Djson\/\nand\u0020https\u003A\/\/w3c.github.io\/rdf\u002Dstar\/cg\u002Dspec\/editors_draft.html\u0023sparql\u002Dstar\u002Dquery\u002Dresults\u002Djson\u002Dformat",
@@ -285,6 +325,31 @@ Search.appendIndex(
             "name": "any",
             "summary": "",
             "url": "classes/rdfInterface-DatasetCompare.html#method_any"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetListQuadParts",
+            "name": "DatasetListQuadParts",
+            "summary": "Set\u0020of\u0020methods\u0020for\u0020listing\u0020distinct\u0020Terms\u0020being\u0020used\u0020on\u0020a\u0020given\u0020position\nof\u0020dataset\u0020quads.",
+            "url": "classes/rdfInterface-DatasetListQuadParts.html"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetListQuadParts\u003A\u003AlistSubjects\u0028\u0029",
+            "name": "listSubjects",
+            "summary": "",
+            "url": "classes/rdfInterface-DatasetListQuadParts.html#method_listSubjects"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetListQuadParts\u003A\u003AlistPredicates\u0028\u0029",
+            "name": "listPredicates",
+            "summary": "",
+            "url": "classes/rdfInterface-DatasetListQuadParts.html#method_listPredicates"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetListQuadParts\u003A\u003AlistObjects\u0028\u0029",
+            "name": "listObjects",
+            "summary": "",
+            "url": "classes/rdfInterface-DatasetListQuadParts.html#method_listObjects"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetListQuadParts\u003A\u003AlistGraphs\u0028\u0029",
+            "name": "listGraphs",
+            "summary": "",
+            "url": "classes/rdfInterface-DatasetListQuadParts.html#method_listGraphs"
         },                {
             "fqsen": "\\rdfInterface\\DatasetMapReduce",
             "name": "DatasetMapReduce",
