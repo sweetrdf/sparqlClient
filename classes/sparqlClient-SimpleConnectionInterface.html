@@ -78,25 +78,21 @@
 
             <div class="phpdocumentor-column -eight phpdocumentor-content">
                     <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/rdfinterface.html">rdfInterface</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/sparqlclient.html">sparqlClient</a></li>
     </ul>
 
     <article class="phpdocumentor-element -interface">
         <h2 class="phpdocumentor-content__title">
-    DefaultGraph
-            <span class="phpdocumentor-element__extends">
-            extends
-                            <a href="classes/rdfInterface-Term.html"><abbr title="\rdfInterface\Term">Term</abbr></a>,                             <a href="classes/rdfInterface-TermCompare.html"><abbr title="\rdfInterface\TermCompare">TermCompare</abbr></a>                    </span>
+    SimpleConnectionInterface
         </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/DefaultGraph.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-defaultgraph.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/DefaultGraph.php">DefaultGraph.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/SimpleConnectionInterface.php"><a href="files/src-sparqlclient-simpleconnectioninterface.html"><abbr title="src/sparqlClient/SimpleConnectionInterface.php">SimpleConnectionInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 </aside>
 
-            <p class="phpdocumentor-summary">Description of RdfTerm</p>
-
+        
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -127,30 +123,30 @@
 
 <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-DefaultGraph.html#method___construct">__construct()</a>
-    <span>
-                        &nbsp;: mixed    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-TermCompare.html#method___toString">__toString()</a>
-    <span>
-                        &nbsp;: string    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-TermCompare.html#method_equals">equals()</a>
+    <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_askQuery">askQuery()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-Term.html#method_getValue">getValue()</a>
+    <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_prepare">prepare()</a>
     <span>
-                        &nbsp;: mixed    </span>
+                        &nbsp;: <a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_prepareAsk">prepareAsk()</a>
+    <span>
+                        &nbsp;: <a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_query">query()</a>
+    <span>
+                        &nbsp;: <a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a>    </span>
 </dt>
 <dd></dd>
 
@@ -163,7 +159,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/rdfInterface-DefaultGraph.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/sparqlClient-SimpleConnectionInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -171,92 +167,28 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/rdfInterface-DefaultGraph.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_askQuery">
+        askQuery()
+        <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_askQuery" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/DefaultGraph.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-defaultgraph.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/DefaultGraph.php">DefaultGraph.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/SimpleConnectionInterface.php"><a href="files/src-sparqlclient-simpleconnectioninterface.html"><abbr title="src/sparqlClient/SimpleConnectionInterface.php">SimpleConnectionInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method___toString">
-        __toString()
-        <a href="classes/rdfInterface-TermCompare.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/TermCompare.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-termcompare.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/TermCompare.php">TermCompare.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">38</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__toString</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">string</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_equals">
-        equals()
-        <a href="classes/rdfInterface-TermCompare.html#method_equals" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/TermCompare.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-termcompare.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/TermCompare.php">TermCompare.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">36</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">equals</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-Term.html"><abbr title="\rdfInterface\Term">Term</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$term</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                <span class="phpdocumentor-signature__name">askQuery</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$term</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-Term.html"><abbr title="\rdfInterface\Term">Term</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$query</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -278,28 +210,125 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getValue">
-        getValue()
-        <a href="classes/rdfInterface-Term.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_prepare">
+        prepare()
+        <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_prepare" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/Term.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-term.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/Term.php">Term.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/SimpleConnectionInterface.php"><a href="files/src-sparqlclient-simpleconnectioninterface.html"><abbr title="src/sparqlClient/SimpleConnectionInterface.php">SimpleConnectionInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">prepare</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$query</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_prepareAsk">
+        prepareAsk()
+        <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_prepareAsk" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/SimpleConnectionInterface.php"><a href="files/src-sparqlclient-simpleconnectioninterface.html"><abbr title="src/sparqlClient/SimpleConnectionInterface.php">SimpleConnectionInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">prepareAsk</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$query</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_query">
+        query()
+        <a href="classes/sparqlClient-SimpleConnectionInterface.html#method_query" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/SimpleConnectionInterface.php"><a href="files/src-sparqlclient-simpleconnectioninterface.html"><abbr title="src/sparqlClient/SimpleConnectionInterface.php">SimpleConnectionInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">query</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a></span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$query</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/sparqlClient-StatementInterface.html"><abbr title="\sparqlClient\StatementInterface">StatementInterface</abbr></a></span>
             &mdash;
         
     
@@ -320,7 +349,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/rdfInterface-DefaultGraph.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/sparqlClient-SimpleConnectionInterface.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

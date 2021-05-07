@@ -83,7 +83,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Statement
+    PreparedStatement
 
     
     
@@ -94,13 +94,12 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 </aside>
 
-            <p class="phpdocumentor-summary">For results data reference see https://www.w3.org/TR/sparql11-results-json/
-and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-results-json-format</p>
+            <p class="phpdocumentor-summary">Description of PreparedStatement</p>
 
 
 
@@ -143,135 +142,163 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/sparqlClient-Statement.html#constant_LANG_PROP">LANG_PROP</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#constant_PH_NAMED">PH_NAMED</a>
     <span>
-        &nbsp;= &#039;xml:lang&#039;                    </span>
+        &nbsp;= &#039;(?&gt;\G|[^\\]):([a-zA-Z0-9]+)&#039;                    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/sparqlClient-PreparedStatement.html#constant_PH_POSIT">PH_POSIT</a>
+    <span>
+        &nbsp;= &#039;(?&gt;\G|[^\\])([?])(?&gt;$|[^a-zA-Z0-9_\x{00C0}-\x{00D6}\x{00D8}-\x{00F6}\x{00F8}-\x{02FF}\x{0370}-\x{037D}\x{037F}-\x{1FFF}\x{200C}-\x{200D}\x{2070}-\x{218F}\x{2C00}-\x{2FEF}\x{3001}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFFD}\x{10000}-\x{EFFFF}])&#039;                    </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/sparqlClient-Statement.html#property_currentRow">$currentRow</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#property_ask">$ask</a>
     <span>
-                &nbsp;: object|null            </span>
+                &nbsp;: bool            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/sparqlClient-Statement.html#property_dataFactory">$dataFactory</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#property_connection">$connection</a>
     <span>
-                &nbsp;: <a href="classes/rdfInterface-DataFactory.html"><abbr title="\rdfInterface\DataFactory">DataFactory</abbr></a>            </span>
+                &nbsp;: <a href="classes/sparqlClient-SimpleConnectionInterface.html"><abbr title="\sparqlClient\SimpleConnectionInterface">SimpleConnectionInterface</abbr></a>            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/sparqlClient-Statement.html#property_iterator">$iterator</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#property_param">$param</a>
     <span>
-                &nbsp;: <abbr title="\Iterator">Iterator</abbr>            </span>
+                &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/sparqlClient-Statement.html#property_response">$response</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#property_query">$query</a>
     <span>
-                &nbsp;: <abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>            </span>
+                &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/sparqlClient-Statement.html#property_rowNumber">$rowNumber</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#property_statement">$statement</a>
     <span>
-                &nbsp;: int|null            </span>
+                &nbsp;: <a href="classes/sparqlClient-Statement.html"><abbr title="\sparqlClient\Statement">Statement</abbr></a>            </span>
 </dt>
 <dd></dd>
 
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method___construct">__construct()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method___construct">__construct()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_bindParam">bindParam()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_bindParam">bindParam()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_bindValue">bindValue()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_bindValue">bindValue()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_current">current()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_current">current()</a>
     <span>
                         &nbsp;: mixed    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_execute">execute()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_execute">execute()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_fetch">fetch()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_fetch">fetch()</a>
     <span>
                         &nbsp;: object|array&lt;string|int, mixed&gt;|false    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_fetchAll">fetchAll()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_fetchAll">fetchAll()</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_fetchColumn">fetchColumn()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_fetchColumn">fetchColumn()</a>
     <span>
                         &nbsp;: object|false    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_key">key()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_key">key()</a>
     <span>
-                        &nbsp;: int|null    </span>
+                        &nbsp;: scalar    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_next">next()</a>
-    <span>
-                        &nbsp;: void    </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_rewind">rewind()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_next">next()</a>
     <span>
                         &nbsp;: void    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/sparqlClient-Statement.html#method_valid">valid()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_rewind">rewind()</a>
+    <span>
+                        &nbsp;: void    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/sparqlClient-PreparedStatement.html#method_valid">valid()</a>
     <span>
                         &nbsp;: bool    </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/sparqlClient-Statement.html#method_makeTerm">makeTerm()</a>
+    <a href="classes/sparqlClient-PreparedStatement.html#method_escapeValue">escapeValue()</a>
     <span>
-                        &nbsp;: <a href="classes/rdfInterface-Term.html"><abbr title="\rdfInterface\Term">Term</abbr></a>    </span>
+                        &nbsp;: string|null    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/sparqlClient-PreparedStatement.html#method_getPlaceholderRegex">getPlaceholderRegex()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/sparqlClient-PreparedStatement.html#method_getQuery">getQuery()</a>
+    <span>
+                        &nbsp;: string    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/sparqlClient-PreparedStatement.html#method_parseQuery">parseQuery()</a>
+    <span>
+                        &nbsp;: void    </span>
 </dt>
 <dd></dd>
 
@@ -283,26 +310,54 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/sparqlClient-Statement.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/sparqlClient-PreparedStatement.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_LANG_PROP">
-        LANG_PROP
-        <a href="classes/sparqlClient-Statement.html#constant_LANG_PROP" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_PH_NAMED">
+        PH_NAMED
+        <a href="classes/sparqlClient-PreparedStatement.html#constant_PH_NAMED" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 </aside>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
     <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">LANG_PROP</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;xml:lang&#039;</span>
+    <span class="phpdocumentor-signature__name">PH_NAMED</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;(?&gt;\G|[^\\]):([a-zA-Z0-9]+)&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PH_POSIT">
+        PH_POSIT
+        <a href="classes/sparqlClient-PreparedStatement.html#constant_PH_POSIT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+</aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PH_POSIT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;(?&gt;\G|[^\\])([?])(?&gt;$|[^a-zA-Z0-9_\x{00C0}-\x{00D6}\x{00D8}-\x{00F6}\x{00F8}-\x{02FF}\x{0370}-\x{037D}\x{037F}-\x{1FFF}\x{200C}-\x{200D}\x{2070}-\x{218F}\x{2C00}-\x{2FEF}\x{3001}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFFD}\x{10000}-\x{EFFFF}])&#039;</span>
 </code>
 
 
@@ -319,7 +374,7 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/sparqlClient-Statement.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/sparqlClient-PreparedStatement.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="
@@ -328,24 +383,24 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_currentRow">
-        $currentRow
-        <a href="classes/sparqlClient-Statement.html#property_currentRow" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_ask">
+        $ask
+        <a href="classes/sparqlClient-PreparedStatement.html#property_ask" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">object|null</span>
-    <span class="phpdocumentor-signature__name">$currentRow</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$ask</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -361,23 +416,23 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_dataFactory">
-        $dataFactory
-        <a href="classes/sparqlClient-Statement.html#property_dataFactory" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_connection">
+        $connection
+        <a href="classes/sparqlClient-PreparedStatement.html#property_connection" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/rdfInterface-DataFactory.html"><abbr title="\rdfInterface\DataFactory">DataFactory</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$dataFactory</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/sparqlClient-SimpleConnectionInterface.html"><abbr title="\sparqlClient\SimpleConnectionInterface">SimpleConnectionInterface</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$connection</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -394,14 +449,14 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_iterator">
-        $iterator
-        <a href="classes/sparqlClient-Statement.html#property_iterator" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_param">
+        $param
+        <a href="classes/sparqlClient-PreparedStatement.html#property_param" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">32</span>
 </aside>
@@ -409,14 +464,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\Iterator">Iterator</abbr></span>
-    <span class="phpdocumentor-signature__name">$iterator</span>
-    </code>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$param</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
+    
+    
     
 
 </article>
@@ -427,47 +480,14 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_response">
-        $response
-        <a href="classes/sparqlClient-Statement.html#property_response" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_query">
+        $query
+        <a href="classes/sparqlClient-PreparedStatement.html#property_query" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">30</span>
-</aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></span>
-    <span class="phpdocumentor-signature__name">$response</span>
-    </code>
-
-        <section class="phpdocumentor-description"></section>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_rowNumber">
-        $rowNumber
-        <a href="classes/sparqlClient-Statement.html#property_rowNumber" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">34</span>
 </aside>
@@ -475,8 +495,41 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">int|null</span>
-    <span class="phpdocumentor-signature__name">$rowNumber</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$query</span>
+    </code>
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_statement">
+        $statement
+        <a href="classes/sparqlClient-PreparedStatement.html#property_statement" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">26</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/sparqlClient-Statement.html"><abbr title="\sparqlClient\Statement">Statement</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$statement</span>
     </code>
 
         <section class="phpdocumentor-description"></section>
@@ -491,7 +544,7 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/sparqlClient-Statement.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/sparqlClient-PreparedStatement.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -501,35 +554,43 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/sparqlClient-Statement.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-DataFactory.html"><abbr title="\rdfInterface\DataFactory">DataFactory</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dataFactory</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/sparqlClient-SimpleConnectionInterface.html"><abbr title="\sparqlClient\SimpleConnectionInterface">SimpleConnectionInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$connection</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ask</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$response</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\MessageInterface">MessageInterface</abbr></span>
+                <span class="phpdocumentor-signature__argument__name">$query</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$dataFactory</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-DataFactory.html"><abbr title="\rdfInterface\DataFactory">DataFactory</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$connection</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/sparqlClient-SimpleConnectionInterface.html"><abbr title="\sparqlClient\SimpleConnectionInterface">SimpleConnectionInterface</abbr></a></span>
                             </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$ask</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
 
@@ -552,12 +613,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_bindParam">
         bindParam()
-        <a href="classes/sparqlClient-Statement.html#method_bindParam" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_bindParam" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 </aside>
 
     
@@ -603,12 +664,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_bindValue">
         bindValue()
-        <a href="classes/sparqlClient-Statement.html#method_bindValue" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_bindValue" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 </aside>
 
     
@@ -654,12 +715,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_current">
         current()
-        <a href="classes/sparqlClient-Statement.html#method_current" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_current" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 </aside>
 
     
@@ -686,12 +747,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_execute">
         execute()
-        <a href="classes/sparqlClient-Statement.html#method_execute" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_execute" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 </aside>
 
     
@@ -729,12 +790,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_fetch">
         fetch()
-        <a href="classes/sparqlClient-Statement.html#method_fetch" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_fetch" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 </aside>
 
     
@@ -772,12 +833,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_fetchAll">
         fetchAll()
-        <a href="classes/sparqlClient-Statement.html#method_fetchAll" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_fetchAll" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 </aside>
 
     
@@ -815,12 +876,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_fetchColumn">
         fetchColumn()
-        <a href="classes/sparqlClient-Statement.html#method_fetchColumn" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_fetchColumn" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 </aside>
 
     
@@ -847,18 +908,18 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_key">
         key()
-        <a href="classes/sparqlClient-Statement.html#method_key" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_key" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">key</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
+                <span class="phpdocumentor-signature__name">key</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">scalar</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -866,7 +927,7 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int|null</span>
+    <span class="phpdocumentor-signature__response_type">scalar</span>
             &mdash;
         
     
@@ -879,12 +940,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_next">
         next()
-        <a href="classes/sparqlClient-Statement.html#method_next" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_next" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 </aside>
 
     
@@ -911,12 +972,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_rewind">
         rewind()
-        <a href="classes/sparqlClient-Statement.html#method_rewind" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_rewind" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 </aside>
 
     
@@ -943,12 +1004,12 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 >
     <h4 class="phpdocumentor-element__name" id="method_valid">
         valid()
-        <a href="classes/sparqlClient-Statement.html#method_valid" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#method_valid" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 </aside>
 
     
@@ -973,28 +1034,28 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_makeTerm">
-        makeTerm()
-        <a href="classes/sparqlClient-Statement.html#method_makeTerm" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_escapeValue">
+        escapeValue()
+        <a href="classes/sparqlClient-PreparedStatement.html#method_escapeValue" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/Statement.php"><a href="files/src-sparqlclient-statement.html"><abbr title="src/sparqlClient/Statement.php">Statement.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                <span class="phpdocumentor-signature__name">makeTerm</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$var</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/rdfInterface-Term.html"><abbr title="\rdfInterface\Term">Term</abbr></a></span></code>
+                <span class="phpdocumentor-signature__name">escapeValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$paramName</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
 
         <section class="phpdocumentor-description"></section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$var</span>
-                : <span class="phpdocumentor-signature__argument__return-type">object</span>
+                <span class="phpdocumentor-signature__argument__name">$paramName</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -1005,7 +1066,103 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/rdfInterface-Term.html"><abbr title="\rdfInterface\Term">Term</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type">string|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPlaceholderRegex">
+        getPlaceholderRegex()
+        <a href="classes/sparqlClient-PreparedStatement.html#method_getPlaceholderRegex" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">137</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">getPlaceholderRegex</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getQuery">
+        getQuery()
+        <a href="classes/sparqlClient-PreparedStatement.html#method_getQuery" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">115</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">getQuery</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_parseQuery">
+        parseQuery()
+        <a href="classes/sparqlClient-PreparedStatement.html#method_parseQuery" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/sparqlClient/PreparedStatement.php"><a href="files/src-sparqlclient-preparedstatement.html"><abbr title="src/sparqlClient/PreparedStatement.php">PreparedStatement.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">101</span>
+</aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                <span class="phpdocumentor-signature__name">parseQuery</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     
@@ -1026,7 +1183,7 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
 </section>
             </div>
         </div>
-        <a href="classes/sparqlClient-Statement.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/sparqlClient-PreparedStatement.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

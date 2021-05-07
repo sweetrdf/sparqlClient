@@ -31,6 +31,151 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/sparqlClient-Connection.html#property_dataFactory"
         },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement",
+            "name": "PreparedStatement",
+            "summary": "Description\u0020of\u0020PreparedStatement",
+            "url": "classes/sparqlClient-PreparedStatement.html"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method___construct"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AbindParam\u0028\u0029",
+            "name": "bindParam",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_bindParam"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AbindValue\u0028\u0029",
+            "name": "bindValue",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_bindValue"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_execute"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Afetch\u0028\u0029",
+            "name": "fetch",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_fetch"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AfetchAll\u0028\u0029",
+            "name": "fetchAll",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_fetchAll"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AfetchColumn\u0028\u0029",
+            "name": "fetchColumn",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_fetchColumn"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Acurrent\u0028\u0029",
+            "name": "current",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_current"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Akey\u0028\u0029",
+            "name": "key",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_key"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Anext\u0028\u0029",
+            "name": "next",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_next"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_rewind"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003Avalid\u0028\u0029",
+            "name": "valid",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_valid"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AparseQuery\u0028\u0029",
+            "name": "parseQuery",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_parseQuery"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AgetQuery\u0028\u0029",
+            "name": "getQuery",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_getQuery"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AgetPlaceholderRegex\u0028\u0029",
+            "name": "getPlaceholderRegex",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_getPlaceholderRegex"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003AescapeValue\u0028\u0029",
+            "name": "escapeValue",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#method_escapeValue"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003APH_POSIT",
+            "name": "PH_POSIT",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#constant_PH_POSIT"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003APH_NAMED",
+            "name": "PH_NAMED",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#constant_PH_NAMED"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003A\u0024statement",
+            "name": "statement",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#property_statement"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003A\u0024param",
+            "name": "param",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#property_param"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003A\u0024query",
+            "name": "query",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#property_query"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003A\u0024connection",
+            "name": "connection",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#property_connection"
+        },                {
+            "fqsen": "\\sparqlClient\\PreparedStatement\u003A\u003A\u0024ask",
+            "name": "ask",
+            "summary": "",
+            "url": "classes/sparqlClient-PreparedStatement.html#property_ask"
+        },                {
+            "fqsen": "\\sparqlClient\\SimpleConnectionInterface",
+            "name": "SimpleConnectionInterface",
+            "summary": "",
+            "url": "classes/sparqlClient-SimpleConnectionInterface.html"
+        },                {
+            "fqsen": "\\sparqlClient\\SimpleConnectionInterface\u003A\u003Aquery\u0028\u0029",
+            "name": "query",
+            "summary": "",
+            "url": "classes/sparqlClient-SimpleConnectionInterface.html#method_query"
+        },                {
+            "fqsen": "\\sparqlClient\\SimpleConnectionInterface\u003A\u003AaskQuery\u0028\u0029",
+            "name": "askQuery",
+            "summary": "",
+            "url": "classes/sparqlClient-SimpleConnectionInterface.html#method_askQuery"
+        },                {
+            "fqsen": "\\sparqlClient\\SimpleConnectionInterface\u003A\u003Aprepare\u0028\u0029",
+            "name": "prepare",
+            "summary": "",
+            "url": "classes/sparqlClient-SimpleConnectionInterface.html#method_prepare"
+        },                {
+            "fqsen": "\\sparqlClient\\SimpleConnectionInterface\u003A\u003AprepareAsk\u0028\u0029",
+            "name": "prepareAsk",
+            "summary": "",
+            "url": "classes/sparqlClient-SimpleConnectionInterface.html#method_prepareAsk"
+        },                {
             "fqsen": "\\sparqlClient\\SparqlException",
             "name": "SparqlException",
             "summary": "Description\u0020of\u0020SparqlException",
@@ -75,6 +220,16 @@ Search.appendIndex(
             "name": "askQuery",
             "summary": "",
             "url": "classes/sparqlClient-StandardConnection.html#method_askQuery"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003Aprepare\u0028\u0029",
+            "name": "prepare",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#method_prepare"
+        },                {
+            "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003AprepareAsk\u0028\u0029",
+            "name": "prepareAsk",
+            "summary": "",
+            "url": "classes/sparqlClient-StandardConnection.html#method_prepareAsk"
         },                {
             "fqsen": "\\sparqlClient\\StandardConnection\u003A\u003AgetRequest\u0028\u0029",
             "name": "getRequest",
@@ -151,6 +306,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/sparqlClient-Statement.html#method_valid"
         },                {
+            "fqsen": "\\sparqlClient\\Statement\u003A\u003AbindParam\u0028\u0029",
+            "name": "bindParam",
+            "summary": "",
+            "url": "classes/sparqlClient-Statement.html#method_bindParam"
+        },                {
+            "fqsen": "\\sparqlClient\\Statement\u003A\u003AbindValue\u0028\u0029",
+            "name": "bindValue",
+            "summary": "",
+            "url": "classes/sparqlClient-Statement.html#method_bindValue"
+        },                {
+            "fqsen": "\\sparqlClient\\Statement\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/sparqlClient-Statement.html#method_execute"
+        },                {
             "fqsen": "\\sparqlClient\\Statement\u003A\u003ALANG_PROP",
             "name": "LANG_PROP",
             "summary": "",
@@ -180,6 +350,41 @@ Search.appendIndex(
             "name": "rowNumber",
             "summary": "",
             "url": "classes/sparqlClient-Statement.html#property_rowNumber"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface",
+            "name": "StatementInterface",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface\u003A\u003AbindParam\u0028\u0029",
+            "name": "bindParam",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html#method_bindParam"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface\u003A\u003AbindValue\u0028\u0029",
+            "name": "bindValue",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html#method_bindValue"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html#method_execute"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface\u003A\u003AfetchAll\u0028\u0029",
+            "name": "fetchAll",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html#method_fetchAll"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface\u003A\u003Afetch\u0028\u0029",
+            "name": "fetch",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html#method_fetch"
+        },                {
+            "fqsen": "\\sparqlClient\\StatementInterface\u003A\u003AfetchColumn\u0028\u0029",
+            "name": "fetchColumn",
+            "summary": "",
+            "url": "classes/sparqlClient-StatementInterface.html#method_fetchColumn"
         },                {
             "fqsen": "\\rdfInterface\\BlankNode",
             "name": "BlankNode",
@@ -635,6 +840,16 @@ Search.appendIndex(
             "name": "__toString",
             "summary": "",
             "url": "classes/rdfInterface-TermCompare.html#method___toString"
+        },                {
+            "fqsen": "\\rdfInterface\\TermIterator",
+            "name": "TermIterator",
+            "summary": "",
+            "url": "classes/rdfInterface-TermIterator.html"
+        },                {
+            "fqsen": "\\rdfInterface\\TermIterator\u003A\u003Acurrent\u0028\u0029",
+            "name": "current",
+            "summary": "",
+            "url": "classes/rdfInterface-TermIterator.html#method_current"
         },                {
             "fqsen": "\\",
             "name": "\\",
