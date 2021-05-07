@@ -18,7 +18,8 @@
         "psr/http-factory": "^1.0",
         "psr/http-client": "^1.0",
         "halaxa/json-machine": "^0.6.0",
-        "guzzlehttp/guzzle": "^7.2"
+        "guzzlehttp/guzzle": "^7.2",
+        "sweetrdf/rdf-helpers": "^0.7.0"
     },
     "suggest": {
         "http-interop/http-factory-guzzle": "^1.0",

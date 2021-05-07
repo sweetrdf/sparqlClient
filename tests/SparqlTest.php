@@ -70,6 +70,19 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $this->assertFalse($c->askQuery($query));
     }
 
+    public function testPrepare(): void {
+        $df = new DataFactory();
+        $c  = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $q  = $c->prepare('SELECT * WHERE {?a ? ?c . ?a :sf ?d . ?a ? ?e} LIMIT 1');
+        $q->execute([
+            $df->namedNode('http://creativecommons.org/ns#license'),
+            $df->namedNode('http://schema.org/dateModified'),
+            'sf' => $df->namedNode('http://schema.org/softwareVersion'),
+        ]);
+        $r  = $q->fetchAll();
+        $this->assertCount(1, $r);
+    }
+
     public function testExceptions(): void {
         $df = new DataFactory();
         $c  = new StandardConnection('https://query.wikidata.org/sparql', $df);
@@ -94,6 +107,30 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
             $this->assertTrue(false);
         } catch (SparqlException $ex) {
             $this->assertStringStartsWith('Query execution failed with HTTP', $ex->getMessage());
+        }
+
+        $query = "";
+        try {
+            $q = $c->prepare($query);
+            $q->execute([$df->literal('foo')]);
+        } catch (SparqlException $ex) {
+            $this->assertEquals('Unknown parameter 0', $ex->getMessage());
+        }
+
+        $query = "?";
+        try {
+            $q = $c->prepare($query);
+            $q->execute();
+        } catch (SparqlException $ex) {
+            $this->assertEquals('Parameter 0 value missing', $ex->getMessage());
+        }
+        
+        $query = "? :p ";
+        try {
+            $q = $c->prepare($query);
+            $q->execute([$df->literal('foo')]);
+        } catch (SparqlException $ex) {
+            $this->assertEquals('Parameter p value missing', $ex->getMessage());
         }
     }
 }

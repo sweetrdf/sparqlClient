@@ -40,6 +40,29 @@ foreach ($results as $i) {
 }
 ```
 
+### Parameterized queries
+
+The `StandardConnection` class provides a [PDO](https://www.php.net/manual/en/book.pdo.php)-like API for parameterized queries (aka prepared statements).
+Parameterized queries:
+
+* Are the right way to assure all named nodes/blank nodes/literals/quads/etc. in the SPARQL query are properly escaped.
+* Protect against [SPARQL injections](https://www.google.com/search?q=sparql+injection).
+* Don't provide any speedup (in contrary to SQL parameterized queries).
+
+```php
+include 'vendor/autoload.php';
+$factory    = new \quickRdf\DataFactory();
+$connection = new \sparqlClient\StandardConnection('https://query.wikidata.org/sparql', $factory);
+$query      = $connection->prepare('SELECT * WHERE {?a ? ?c . ?a :sf ?d .} LIMIT 10');
+$query->execute([
+    $factory->namedNode('http://creativecommons.org/ns#license'),
+    'sf' => $factory->namedNode('http://schema.org/softwareVersion'),
+]);
+foreach ($query as $i) {
+    print_r($i);
+}
+```
+
 ### Advanced usage
 
 * You may also provide any PSR-18 HTTP client and/or PSR-17 HTTP request factory to the `\sparqlClient\StandardConnection` constructor.
@@ -56,7 +79,5 @@ foreach ($results as $i) {
 
 ## FAQ
 
-* **What about parameterized queries?**\
-  They'll be added in the future.
 * **What about integration of INSERT/UPDATE/DELETE queries with the \rdfInterface\Dataset or \rdfInterface\QuadIterator?**\
   Will be added in the future.

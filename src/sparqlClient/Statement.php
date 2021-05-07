@@ -23,7 +23,7 @@ use rdfInterface\Term as iTerm;
  *
  * @author zozlak
  */
-class Statement implements \Iterator {
+class Statement implements StatementInterface {
 
     const LANG_PROP = 'xml:lang';
 
@@ -128,5 +128,17 @@ class Statement implements \Iterator {
 
     public function valid(): bool {
         return $this->currentRow !== null;
+    }
+
+    public function bindParam(int | string $parameter, iTerm &$variable): bool {
+        return false;
+    }
+
+    public function bindValue(int | string $parameter, iTerm $value): bool {
+        return false;
+    }
+
+    public function execute(array $parameters = []): bool {
+        return false;
     }
 }
