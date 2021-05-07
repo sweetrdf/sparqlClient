@@ -53,6 +53,8 @@ Parameterized queries:
 include 'vendor/autoload.php';
 $factory    = new \quickRdf\DataFactory();
 $connection = new \sparqlClient\StandardConnection('https://query.wikidata.org/sparql', $factory);
+
+// pass parameters using execute()
 $query      = $connection->prepare('SELECT * WHERE {?a ? ?c . ?a :sf ?d .} LIMIT 10');
 $query->execute([
     $factory->namedNode('http://creativecommons.org/ns#license'),
@@ -61,7 +63,30 @@ $query->execute([
 foreach ($query as $i) {
     print_r($i);
 }
+
+// bind parameter to a variable
+$query = $connection->prepare('SELECT * WHERE {?a ? ?c .} LIMIT 2');
+$value = $factory->namedNode('http://creativecommons.org/ns#license');
+$query->bindParam(0, $value);
+$query->execute();
+foreach ($query as $i) {
+    print_r($i);
+}
+$value = $factory->namedNode('http://schema.org/softwareVersion');
+$query->execute();
+foreach ($query as $i) {
+    print_r($i);
+}
 ```
+
+There are some differences comparing to the PDO API:
+
+* Mixing positional and named parameters in one query is allowed (see the example above).
+* Mixing `bindParam()`/`bindValue()` and passing (some or all) parameters trough `execute()` is allowed.
+  * The only constraint is that all parameters have to be set.
+  * Parameters passed to `execute()` overwrite ones set with `bindParam()`/`bindValue()`.
+* As strong typing is used parameter values have to be of type `rdfInterface\Term`.
+  * It makes unnecessary specifying the type in `bindParam()`/`bindvalue()`.
 
 ### Advanced usage
 

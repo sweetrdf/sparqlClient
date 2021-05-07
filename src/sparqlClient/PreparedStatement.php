@@ -41,7 +41,7 @@ class PreparedStatement implements StatementInterface {
         if (!array_key_exists($parameter, $this->param)) {
             throw new SparqlException("Unknown parameter $parameter");
         }
-        $this->param[$parameter] = $variable;
+        $this->param[$parameter] = &$variable;
         return true;
     }
 
