@@ -11,7 +11,7 @@ A SPARQL client library for the [rdfInterface](https://github.com/sweetrdf/rdfIn
 * It can work with any PSR-17 / PSR-18 compliant HTTP libraries.
 * It can work with huge query results.\
   The response is parsed in a lazy way as a stream (the next row is parsed only when you try to read it).
-  This assures iterating trough results without acumulating them in an array has neglectable memory footprint.
+  This assures iterating through results without acumulating them in an array, which has neglectable memory footprint.
 
 ## Installation
 
