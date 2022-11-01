@@ -14,12 +14,12 @@
     ],
     "require": {
         "php": ">=8.0",
-        "sweetrdf/rdf-interface": ">=0.8.0",
         "psr/http-factory": "^1.0",
         "psr/http-client": "^1.0",
         "halaxa/json-machine": "^0.6.0",
         "guzzlehttp/guzzle": "^7.2",
-        "sweetrdf/rdf-helpers": "^0.7.0"
+        "sweetrdf/rdf-interface": "^1.0.0-RC1",
+        "sweetrdf/rdf-helpers": "^1.0.0-RC1"
     },
     "suggest": {
         "http-interop/http-factory-guzzle": "^1.0",
@@ -36,8 +36,8 @@
         "phpstan/phpstan": "*",
         "squizlabs/php_codesniffer": "*",
         "php-coveralls/php-coveralls": "^2.4",
-        "sweetrdf/quick-rdf": "*",
-        "http-interop/http-factory-guzzle": "^1.0"
+        "http-interop/http-factory-guzzle": "^1.0",
+        "sweetrdf/quick-rdf": "^1.0.0-RC1"
     },
     "autoload-dev": {
         "psr-4": {

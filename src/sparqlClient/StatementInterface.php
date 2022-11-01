@@ -8,7 +8,8 @@
 
 namespace sparqlClient;
 
-use rdfInterface\Term as iTerm;
+use PDO;
+use rdfInterface\TermInterface as iTerm;
 
 /**
  *

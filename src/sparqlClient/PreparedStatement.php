@@ -9,8 +9,8 @@
 namespace sparqlClient;
 
 use PDO;
-use rdfInterface\Term as iTerm;
-use rdfInterface\Quad as iQuad;
+use rdfInterface\TermInterface as iTerm;
+use rdfInterface\QuadInterface as iQuad;
 use rdfHelpers\NtriplesUtil;
 
 /**
@@ -82,7 +82,11 @@ class PreparedStatement implements StatementInterface {
         return $this->statement->current();
     }
 
-    public function key(): \scalar {
+    /**
+     * 
+     * @return scalar
+     */
+    public function key(): mixed {
         return $this->statement->key();
     }
 
@@ -119,7 +123,7 @@ class PreparedStatement implements StatementInterface {
             if (isset($matches[2])) {
                 $pn   = $n;
                 $from = '?';
-                $to   = $this->param[$pn] ?? null;
+                $to   = $param[$pn] ?? null;
                 $n++;
             } else {
                 $pn   = $matches[1];

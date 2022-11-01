@@ -10,7 +10,7 @@ namespace sparqlClient;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
-use rdfInterface\DataFactory;
+use rdfInterface\DataFactoryInterface as DataFactory;
 
 /**
  * Description of Connection

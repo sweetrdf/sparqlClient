@@ -14,8 +14,8 @@ use PDO;
 use Psr\Http\Message\MessageInterface;
 use JsonMachine\JsonMachine;
 use JsonMachine\JsonDecoder\ExtJsonDecoder;
-use rdfInterface\DataFactory;
-use rdfInterface\Term as iTerm;
+use rdfInterface\DataFactoryInterface as DataFactory;
+use rdfInterface\TermInterface as iTerm;
 
 /**
  * For results data reference see https://www.w3.org/TR/sparql11-results-json/
