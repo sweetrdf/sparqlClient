@@ -58,7 +58,7 @@ interface StatementInterface extends \Iterator {
      * @param int $fetchStyle
      * @return object|array<mixed>|string|false
      */
-    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false;
+    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | bool;
 
     /**
      * Returns a first column of the next results row.

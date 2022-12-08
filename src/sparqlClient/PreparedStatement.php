@@ -89,7 +89,7 @@ class PreparedStatement implements StatementInterface {
      * @param int $fetchStyle
      * @return object|array<mixed>|string|false
      */
-    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false {
+    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | bool {
         return $this->statement->fetch($fetchStyle);
     }
 

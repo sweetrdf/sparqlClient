@@ -110,7 +110,7 @@ class Statement implements StatementInterface {
      * @return object|array<mixed>|string|false
      * @throws \BadMethodCallException
      */
-    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false {
+    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | bool {
         $this->next();
         if ($this->valid()) {
             $row = $this->current();
@@ -171,9 +171,9 @@ class Statement implements StatementInterface {
             if (is_object($row)) {
                 // SELECT query
                 $this->rowNumber = $this->iterator->key();
-                foreach ((array) $row as $p => &$pv) {
+                foreach (get_object_vars($row) as $p => &$pv) {
                     if (is_object($pv)) {
-                        $pv = $this->makeTerm($pv);
+                        $row->$p = $this->makeTerm($pv);
                     }
                 }
                 unset($pv);
