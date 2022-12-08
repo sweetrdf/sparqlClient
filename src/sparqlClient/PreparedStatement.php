@@ -41,7 +41,7 @@ class PreparedStatement implements StatementInterface {
     const PH_POSIT = '(?>\\G|[^\\\\])([?])(?>$|[^a-zA-Z0-9_\x{00C0}-\x{00D6}\x{00D8}-\x{00F6}\x{00F8}-\x{02FF}\x{0370}-\x{037D}\x{037F}-\x{1FFF}\x{200C}-\x{200D}\x{2070}-\x{218F}\x{2C00}-\x{2FEF}\x{3001}-\x{D7FF}\x{F900}-\x{FDCF}\x{FDF0}-\x{FFFD}\x{10000}-\x{EFFFF}])';
     const PH_NAMED = '(?>\\G|[^\\\\]):([a-zA-Z0-9]+)';
 
-    private Statement $statement;
+    private StatementInterface $statement;
 
     /**
      * 
@@ -50,8 +50,7 @@ class PreparedStatement implements StatementInterface {
     private array $param = [];
 
     public function __construct(private string $query,
-                                private SimpleConnectionInterface $connection,
-                                private bool $ask = false) {
+                                private SimpleConnectionInterface $connection) {
         $this->parseQuery();
     }
 
@@ -71,28 +70,39 @@ class PreparedStatement implements StatementInterface {
         return true;
     }
 
+    /**
+     * 
+     * @param array<mixed> $parameters
+     * @return bool
+     */
     public function execute(array $parameters = []): bool {
         foreach ($parameters as $n => $v) {
             $this->bindValue($n, $v);
         }
-        $query = $this->getQuery();
-        if ($this->ask) {
-            $this->statement = $this->connection->askQuery($query);
-        } else {
-            $this->statement = $this->connection->query($query);
-        }
+        $query           = $this->getQuery();
+        $this->statement = $this->connection->query($query);
         return true;
     }
 
-    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | false {
+    /**
+     * 
+     * @param int $fetchStyle
+     * @return object|array<mixed>|string|false
+     */
+    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false {
         return $this->statement->fetch($fetchStyle);
     }
 
+    /**
+     * 
+     * @param int $fetchStyle
+     * @return array<mixed>
+     */
     public function fetchAll(int $fetchStyle = PDO::FETCH_OBJ): array {
         return $this->statement->fetchAll($fetchStyle);
     }
 
-    public function fetchColumn(): object | false {
+    public function fetchColumn(): object | string | bool {
         return $this->statement->fetchColumn();
     }
 

@@ -60,7 +60,7 @@ class StandardConnection implements SimpleConnectionInterface {
     }
 
     public function prepare(string $query): PreparedStatement {
-        return new PreparedStatement($query, $this, false);
+        return new PreparedStatement($query, $this);
     }
 
     private function getRequest(string $query): RequestInterface {

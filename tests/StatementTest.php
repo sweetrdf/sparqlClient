@@ -43,7 +43,7 @@ use rdfInterface\QuadInterface;
  */
 class StatementTest extends \PHPUnit\Framework\TestCase {
 
-    private function testWikidata($format): void {
+    private function testWikidata(string $format): void {
         $df     = new DataFactory();
         $client = new Client();
         $query  = rawurlencode('select * where {?a ?b ?c} limit 5');
@@ -214,9 +214,13 @@ class StatementTest extends \PHPUnit\Framework\TestCase {
         $this->assertInstanceOf(QuadInterface::class, $r1['b']);
         $this->assertEquals($uri2['value'], $r1['b']->getSubject()->getValue());
         $this->assertEquals($uri3['value'], $r1['b']->getPredicate()->getValue());
-        $this->assertEquals($lit1['value'], $r1['b']->getObject()->getValue());
-        $this->assertEquals($lit1['xml:lang'], $r1['b']->getObject()->getLang());
-        $this->assertEquals(RdfConstants::RDF_LANG_STRING, $r1['b']->getObject()->getDatatype());
+        /**
+         * @var \rdfInterface\LiteralInterface $v
+         */
+        $v        = $r1['b']->getObject();
+        $this->assertEquals($lit1['value'], $v->getValue());
+        $this->assertEquals($lit1['xml:lang'], $v->getLang());
+        $this->assertEquals(RdfConstants::RDF_LANG_STRING, $v->getDatatype());
         $this->assertInstanceOf(QuadInterface::class, $r1['b']);
         $this->assertEquals($uri3['value'], $r2['a']->getSubject()->getValue());
         $this->assertEquals($uri1['value'], $r2['a']->getPredicate()->getValue());
@@ -280,9 +284,13 @@ class StatementTest extends \PHPUnit\Framework\TestCase {
         $this->assertInstanceOf(QuadInterface::class, $r1['b']);
         $this->assertEquals('http://bar', $r1['b']->getSubject()->getValue());
         $this->assertEquals('http://baz', $r1['b']->getPredicate()->getValue());
-        $this->assertEquals('foo', $r1['b']->getObject()->getValue());
-        $this->assertEquals('en', $r1['b']->getObject()->getLang());
-        $this->assertEquals(RdfConstants::RDF_LANG_STRING, $r1['b']->getObject()->getDatatype());
+        /**
+         * @var \rdfInterface\LiteralInterface $v
+         */
+        $v        = $r1['b']->getObject();
+        $this->assertEquals('foo', $v->getValue());
+        $this->assertEquals('en', $v->getLang());
+        $this->assertEquals(RdfConstants::RDF_LANG_STRING, $v->getDatatype());
         $this->assertInstanceOf(QuadInterface::class, $r1['b']);
         $this->assertEquals('http://baz', $r2['a']->getSubject()->getValue());
         $this->assertEquals('http://foo', $r2['a']->getPredicate()->getValue());

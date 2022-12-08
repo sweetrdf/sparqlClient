@@ -91,6 +91,11 @@ class Statement implements StatementInterface {
         };
     }
 
+    /**
+     * 
+     * @param int $fetchStyle
+     * @return array<mixed>
+     */
     public function fetchAll(int $fetchStyle = PDO::FETCH_OBJ): array {
         $ret = [];
         while ($row = $this->fetch($fetchStyle)) {
@@ -99,6 +104,12 @@ class Statement implements StatementInterface {
         return $ret;
     }
 
+    /**
+     * 
+     * @param int $fetchStyle
+     * @return object|array<mixed>|string|false
+     * @throws \BadMethodCallException
+     */
     public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false {
         $this->next();
         if ($this->valid()) {
@@ -124,13 +135,11 @@ class Statement implements StatementInterface {
         }
     }
 
-    public function fetchColumn(): object | bool {
+    public function fetchColumn(): object | string | bool {
         return $this->fetch(PDO::FETCH_COLUMN);
     }
 
     private function makeTerm(object $var): iTerm {
-        // https://www.w3.org/TR/sparql11-results-json/
-        // https://w3c.github.io/rdf-star/cg-spec/2021-02-18.html#sparql-star-query-results-json-format
         switch ($var->type) {
             case 'uri':
                 return $this->dataFactory::namedNode($var->value);
@@ -162,7 +171,7 @@ class Statement implements StatementInterface {
             if (is_object($row)) {
                 // SELECT query
                 $this->rowNumber = $this->iterator->key();
-                foreach ($row as $p => &$pv) {
+                foreach ((array) $row as $p => &$pv) {
                     if (is_object($pv)) {
                         $pv = $this->makeTerm($pv);
                     }
@@ -205,6 +214,11 @@ class Statement implements StatementInterface {
         return false;
     }
 
+    /**
+     * 
+     * @param array<mixed> $parameters
+     * @return bool
+     */
     public function execute(array $parameters = []): bool {
         return false;
     }
@@ -224,7 +238,7 @@ class Statement implements StatementInterface {
         $options  = ['pointer' => ['/results/bindings', '/boolean']];
         $parser   = Items::fromStream($handle, $options);
         $iterator = $parser->getIterator();
-        while ($iterator instanceof IteratorAggregate) {
+        while (!($iterator instanceof Iterator)) {
             $iterator = $iterator->getIterator();
         }
         return $iterator;
@@ -350,6 +364,7 @@ class BindingElement {
     public string $name;
     public string $type;
     public string $value;
+    public string $datatype;
     public BindingElement $subject;
     public BindingElement $predicate;
     public BindingElement $object;

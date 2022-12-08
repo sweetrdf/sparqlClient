@@ -39,10 +39,25 @@ interface StatementInterface extends \Iterator {
 
     public function bindValue(int | string $parameter, iTerm $value): bool;
 
+    /**
+     * 
+     * @param array<mixed> $parameters
+     * @return bool
+     */
     public function execute(array $parameters = []): bool;
 
+    /**
+     * 
+     * @param int $fetchStyle
+     * @return array<mixed>
+     */
     public function fetchAll(int $fetchStyle = PDO::FETCH_OBJ): array;
 
+    /**
+     * 
+     * @param int $fetchStyle
+     * @return object|array<mixed>|string|false
+     */
     public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false;
 
     /**
@@ -54,5 +69,5 @@ interface StatementInterface extends \Iterator {
      * 
      * @return object|bool
      */
-    public function fetchColumn(): object | bool;
+    public function fetchColumn(): object | string | bool;
 }
