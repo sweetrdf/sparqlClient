@@ -301,4 +301,58 @@ class StatementTest extends \PHPUnit\Framework\TestCase {
         $this->assertEquals('bar', $r2['b']->getValue());
         $this->assertEquals('https://type', $r2['b']->getDatatype());
     }
+
+    public function testFetchMode(): void {
+        $df       = new DataFactory();
+        $c        = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $query    = rawurlencode('select ?a ?b ?c where {?a ?b ?c} limit 10');
+        $client   = new Client();
+        $request  = new Request('GET', 'https://query.wikidata.org/sparql?query=' . $query);
+        $response = $client->sendRequest($request);
+        $body     = $response->getBody();
+
+        $body->seek(0);
+        $s  = new Statement($response, $df);
+        $d1 = iterator_to_array($s);
+
+        $body->seek(0);
+        $s  = new Statement($response, $df);
+        $d2 = $s->fetchAll();
+
+        $body->seek(0);
+        $s   = new Statement($response, $df);
+        $d3  = [];
+        while ($row = $s->fetch()) {
+            $d3[] = $row;
+        }
+
+        $body->seek(0);
+        $s  = new Statement($response, $df);
+        $c1 = $s->fetchAll(PDO::FETCH_COLUMN);
+
+        $body->seek(0);
+        $s   = new Statement($response, $df);
+        $c2  = [];
+        while ($col = $s->fetchColumn()) {
+            $c2[] = $col;
+        }
+
+        $this->assertCount(10, $d1);
+        $this->assertCount(10, $d2);
+        $this->assertCount(10, $d3);
+        $this->assertCount(10, $c1);
+        $this->assertCount(10, $c2);
+        for ($i = 0; $i < 10; $i++) {
+            $this->assertTrue($d1[$i]->a->equals($d2[$i]->a));
+            $this->assertTrue($d1[$i]->b->equals($d2[$i]->b));
+            $this->assertTrue($d1[$i]->c->equals($d2[$i]->c));
+
+            $this->assertTrue($d1[$i]->a->equals($d3[$i]->a));
+            $this->assertTrue($d1[$i]->b->equals($d3[$i]->b));
+            $this->assertTrue($d1[$i]->c->equals($d3[$i]->c));
+
+            $this->assertTrue($d1[$i]->a->equals($c1[$i]));
+            $this->assertTrue($d1[$i]->a->equals($c2[$i]));
+        }
+    }
 }

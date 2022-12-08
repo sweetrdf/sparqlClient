@@ -28,6 +28,7 @@ namespace sparqlClient;
 
 use PDO;
 use quickRdf\DataFactory;
+use rdfInterface\TermInterface;
 
 /**
  * Description of IntegrationTest
@@ -42,42 +43,12 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $query = 'select ?a ?b ?c where {?a ?b ?c} limit 10';
 
         $s  = $c->query($query);
-        $d1 = iterator_to_array($s);
-
-        $s  = $c->query($query);
-        $d2 = $s->fetchAll();
-
-        $s   = $c->query($query);
-        $d3  = [];
-        while ($row = $s->fetch()) {
-            $d3[] = $row;
-        }
-
-        $s  = $c->query($query);
-        $c1 = $s->fetchAll(PDO::FETCH_COLUMN);
-
-        $s   = $c->query($query);
-        $c2  = [];
-        while ($col = $s->fetchColumn()) {
-            $c2[] = $col;
-        }
-
-        $this->assertCount(10, $d1);
-        $this->assertCount(10, $d2);
-        $this->assertCount(10, $d3);
-        $this->assertCount(10, $c1);
-        $this->assertCount(10, $c2);
-        for ($i = 0; $i < 10; $i++) {
-            $this->assertTrue($d1[$i]->a->equals($d2[$i]->a));
-            $this->assertTrue($d1[$i]->b->equals($d2[$i]->b));
-            $this->assertTrue($d1[$i]->c->equals($d2[$i]->c));
-
-            $this->assertTrue($d1[$i]->a->equals($d3[$i]->a));
-            $this->assertTrue($d1[$i]->b->equals($d3[$i]->b));
-            $this->assertTrue($d1[$i]->c->equals($d3[$i]->c));
-
-            $this->assertTrue($d1[$i]->a->equals($c1[$i]));
-            $this->assertTrue($d1[$i]->a->equals($c2[$i]));
+        $d = iterator_to_array($s);
+        $this->assertCount(10, $d);
+        foreach ($d as $i) {
+            $this->assertInstanceOf(TermInterface::class, $i->a);
+            $this->assertInstanceOf(TermInterface::class, $i->b);
+            $this->assertInstanceOf(TermInterface::class, $i->c);
         }
     }
 
