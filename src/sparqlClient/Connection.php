@@ -47,26 +47,11 @@ class Connection {
     }
 
     public function query(RequestInterface $request): Statement {
-        $request  = $request->withHeader('Accept', 'application/json');
+        $request  = $request->withHeader('Accept', Statement::getAcceptHeader());
         $response = $this->client->sendRequest($request);
         if ($response->getStatusCode() !== 200) {
             throw new SparqlException("Query execution failed with HTTP " . $response->getStatusCode() . " " . $response->getReasonPhrase());
         }
         return new Statement($response, $this->dataFactory);
-    }
-
-    public function askQuery(RequestInterface $request): bool {
-        $request  = $request->withHeader('Accept', 'application/json');
-        $response = $this->client->sendRequest($request);
-        if ($response->getStatusCode() !== 200) {
-            throw new SparqlException("Query execution failed with HTTP " . $response->getStatusCode() . " " . $response->getReasonPhrase());
-        }
-        // https://www.w3.org/TR/sparql11-results-json/
-        $body   = (string) $response->getBody();
-        $result = json_decode($body);
-        if (!isset($result->boolean)) {
-            throw new SparqlException("Not an ASK query response: " . $body);
-        }
-        return $result->boolean;
     }
 }

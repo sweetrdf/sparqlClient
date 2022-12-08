@@ -34,9 +34,5 @@ interface SimpleConnectionInterface {
 
     public function query(string $query): StatementInterface;
 
-    public function askQuery(string $query): bool;
-
     public function prepare(string $query): StatementInterface;
-
-    public function prepareAsk(string $query): StatementInterface;
 }

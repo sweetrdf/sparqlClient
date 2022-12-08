@@ -26,12 +26,17 @@
 
 namespace sparqlClient;
 
+use Generator;
 use Iterator;
 use IteratorAggregate;
 use PDO;
+use SplQueue;
+use SplStack;
+use stdClass;
 use Psr\Http\Message\MessageInterface;
-use JsonMachine\JsonMachine;
-use JsonMachine\JsonDecoder\ExtJsonDecoder;
+use Psr\Http\Message\StreamInterface;
+use JsonMachine\Items;
+use JsonMachine\Exception\PathNotFoundException;
 use rdfInterface\DataFactoryInterface as DataFactory;
 use rdfInterface\TermInterface as iTerm;
 
@@ -43,7 +48,22 @@ use rdfInterface\TermInterface as iTerm;
  */
 class Statement implements StatementInterface {
 
-    const LANG_PROP = 'xml:lang';
+    const JSON_LAN       = 'xml:lang';
+    const XML_LANG       = 'http://www.w3.org/XML/1998/namespacelang';
+    const XML_NMSP       = 'http://www.w3.org/2005/sparql-results#';
+    const XML_CHUNK_SIZE = 1048576; // 1MB
+
+    static public function getAcceptHeader(): string {
+        // CSV/TSV as the last as it skips information on the variable type, lang and datatype
+        return 'application/sparql-results+json, ' .
+            'application/json;q=0.9, ' .
+            'application/sparql-results+xml;q=0.8, ' .
+            'application/xml;q=0.7, ' .
+            'text/xml;q=0.6, ' .
+            'text/csv;q=0.5, ' .
+            'text/tab-separated-values;q=0.4, ' .
+            '*/*;q=0.1';
+    }
 
     private MessageInterface $response;
     private DataFactory $dataFactory;
@@ -56,13 +76,19 @@ class Statement implements StatementInterface {
         $this->response    = $response;
         $this->dataFactory = $dataFactory;
 
-        $stream   = \GuzzleHttp\Psr7\StreamWrapper::getResource($response->getBody());
-        $parser   = JsonMachine::fromStream($stream, '/results/bindings', new ExtJsonDecoder(false));
-        $iterator = $parser->getIterator();
-        while ($iterator instanceof IteratorAggregate) {
-            $iterator = $iterator->getIterator();
-        }
-        $this->iterator = $iterator;
+        $contentType    = $response->getHeader('Content-Type')[0] ?? '';
+        $contentType    = trim(explode(';', $contentType)[0]); // skip encoding, etc. suplementary info
+        $body           = $response->getBody();
+        $this->iterator = match ($contentType) {
+            'application/sparql-results+json' => $this->getJsonIterator($body),
+            'application/json' => $this->getJsonIterator($body),
+            'text/csv' => $this->getSepIterator($body, ','),
+            'text/tab-separated-values' => $this->getSepIterator($body, "\t"),
+            'application/sparql-results+xml' => $this->getXmlIterator($body),
+            'application/xml' => $this->getXmlIterator($body),
+            'text/xml' => $this->getXmlIterator($body),
+            default => $this->getJsonIterator($body),
+        };
     }
 
     public function fetchAll(int $fetchStyle = PDO::FETCH_OBJ): array {
@@ -73,7 +99,7 @@ class Statement implements StatementInterface {
         return $ret;
     }
 
-    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | false {
+    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false {
         $this->next();
         if ($this->valid()) {
             $row = $this->current();
@@ -82,6 +108,11 @@ class Statement implements StatementInterface {
                     return $row;
                 case PDO::FETCH_ASSOC:
                     return (array) $row;
+                case PDO::FETCH_NUM:
+                    return array_values((array) $row);
+                case PDO::FETCH_BOTH:
+                    $row = (array) $row;
+                    return array_merge($row, array_values($row));
                 case PDO::FETCH_COLUMN:
                     $row = get_object_vars($row);
                     return $row[array_keys($row)[0]];
@@ -93,7 +124,7 @@ class Statement implements StatementInterface {
         }
     }
 
-    public function fetchColumn(): object | false {
+    public function fetchColumn(): object | bool {
         return $this->fetch(PDO::FETCH_COLUMN);
     }
 
@@ -104,7 +135,7 @@ class Statement implements StatementInterface {
             case 'uri':
                 return $this->dataFactory::namedNode($var->value);
             case 'literal':
-                return $this->dataFactory::literal($var->value, $var->{self::LANG_PROP} ?? null, $var->datatype ?? null);
+                return $this->dataFactory::literal($var->value, $var->{self::JSON_LAN} ?? null, $var->datatype ?? null);
             case 'bnode':
                 return $this->dataFactory::blankNode($var->value);
             case 'triple':
@@ -127,13 +158,31 @@ class Statement implements StatementInterface {
 
     public function next(): void {
         if ($this->iterator->valid()) {
-            $this->rowNumber = $this->iterator->key();
-            $row             = $this->iterator->current();
-            foreach ($row as $p => $pv) {
-                $row->$p = $this->makeTerm($pv);
+            $row = $this->iterator->current();
+            if (is_object($row)) {
+                // SELECT query
+                $this->rowNumber = $this->iterator->key();
+                foreach ($row as $p => &$pv) {
+                    if (is_object($pv)) {
+                        $pv = $this->makeTerm($pv);
+                    }
+                }
+                unset($pv);
+                $this->currentRow = $row;
+            } else {
+                // ASK query
+                $this->rowNumber  = 0;
+                $this->currentRow = (object) ['boolean' => (bool) $row];
             }
-            $this->currentRow = $row;
-            $this->iterator->next();
+            try {
+                $this->iterator->next();
+            } catch (PathNotFoundException $e) {
+                // RFC 6901 the JsonMachine library bases on requires an error
+                // to be thrown when not all pointers are found but we by definition
+                // search for mutually exclusive pointers being results of ASK 
+                // and SELECT queries so we will always get this exception at the
+                // end of parsing
+            }
         } else {
             $this->currentRow = null;
             $this->rowNumber  = null;
@@ -159,4 +208,149 @@ class Statement implements StatementInterface {
     public function execute(array $parameters = []): bool {
         return false;
     }
+
+    /**
+     * Parses a JSON SPARQL response into rows.
+     * 
+     * Reference:
+     * - https://www.w3.org/TR/2013/REC-sparql11-results-json-20130321/
+     * - https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-results-json-format
+     * 
+     * @param StreamInterface $body
+     * @return Iterator
+     */
+    private function getJsonIterator(StreamInterface $body): Iterator {
+        $handle   = \GuzzleHttp\Psr7\StreamWrapper::getResource($body);
+        $options  = ['pointer' => ['/results/bindings', '/boolean']];
+        $parser   = Items::fromStream($handle, $options);
+        $iterator = $parser->getIterator();
+        while ($iterator instanceof IteratorAggregate) {
+            $iterator = $iterator->getIterator();
+        }
+        return $iterator;
+    }
+
+    /**
+     * Parses a CSV/TSV SPARQL response into rows.
+     * 
+     * Reference:
+     * - https://www.w3.org/TR/2013/REC-sparql11-results-csv-tsv-20130321/
+     * 
+     * @param StreamInterface $body
+     * @param string $separator
+     * @return Generator
+     */
+    private function getSepIterator(StreamInterface $body, string $separator): Generator {
+        $handle = \GuzzleHttp\Psr7\StreamWrapper::getResource($body);
+        $header = fgetcsv($handle, null, $separator, '"', '"');
+        while (!feof($handle)) {
+            $row = fgetcsv($handle, null, $separator, '"', '"');
+            yield (object) array_combine($header, $row);
+        }
+    }
+
+    /**
+     * Parses an XML SPARQL response into rows.
+     * 
+     * Reference:
+     * - https://www.w3.org/TR/2013/REC-rdf-sparql-XMLres-20130321/
+     * - https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-results-xml-format
+     * 
+     * @param StreamInterface $body
+     * @return Generator
+     */
+    private function getXmlIterator(StreamInterface $body): Generator {
+        $rows    = new SplQueue();
+        $row     = null;
+        $binding = null;
+        $value   = null;
+        $values  = null;
+
+        $parser  = xml_parser_create_ns('UTF-8', '');
+        xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
+        xml_parser_set_option($parser, XML_OPTION_SKIP_TAGSTART, 0);
+        xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 0);
+        $onStart = function ($x, $tag, $attr) use (&$row, &$binding, &$value,
+                                                   &$values) {
+            $tag = str_replace(self::XML_NMSP, '', $tag);
+            switch ($tag) {
+                case 'boolean':
+                    $value                   = new BindingElement();
+                    break;
+                case 'result':
+                    $row                     = new stdClass();
+                    break;
+                case 'binding':
+                    $binding                 = new BindingElement();
+                    $binding->name           = $attr['name'];
+                    $value                   = $binding;
+                    $values                  = new SplStack();
+                    break;
+                case 'bnode':
+                case 'literal':
+                case 'uri':
+                case 'triple':
+                    $value->type             = $tag;
+                    $value->{self::JSON_LAN} = $attr[self::XML_LANG] ?? '';
+                    $value->datatype         = $attr['datatype'] ?? '';
+                    break;
+                case 'subject':
+                case 'predicate':
+                case 'object':
+                    $values->push($value);
+                    $value->$tag             = new BindingElement();
+                    $value                   = $value->$tag;
+                    break;
+            }
+        };
+        $onEnd = function ($x, $tag) use ($rows, &$values, &$row, &$binding,
+                                          &$value) {
+            $tag = str_replace(self::XML_NMSP, '', $tag);
+            switch ($tag) {
+                case 'boolean':
+                    $rows->enqueue($value->value === 'true');
+                    break;
+                case 'result':
+                    $rows->enqueue($row);
+                    $row                   = null;
+                    break;
+                case 'binding':
+                    $row->{$binding->name} = $binding;
+                    $binding               = null;
+                    break;
+                case 'subject':
+                case 'predicate':
+                case 'object':
+                    $value                 = $values->pop();
+                    break;
+            }
+        };
+        xml_set_element_handler($parser, $onStart, $onEnd);
+        $onCData = function ($x, $data) use (&$value) {
+            if (is_object($value) && empty($value->value)) {
+                $value->value = $data;
+            }
+        };
+        xml_set_character_data_handler($parser, $onCData);
+        while (!$body->eof()) {
+            while (!$rows->isEmpty()) {
+                yield $rows->dequeue();
+            }
+            xml_parse($parser, $body->read(self::XML_CHUNK_SIZE) ?: '', false);
+        }
+        xml_parse($parser, '', true);
+        while (!$rows->isEmpty()) {
+            yield $rows->dequeue();
+        }
+    }
+}
+
+class BindingElement {
+
+    public string $name;
+    public string $type;
+    public string $value;
+    public BindingElement $subject;
+    public BindingElement $predicate;
+    public BindingElement $object;
 }

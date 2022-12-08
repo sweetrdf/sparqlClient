@@ -43,7 +43,16 @@ interface StatementInterface extends \Iterator {
 
     public function fetchAll(int $fetchStyle = PDO::FETCH_OBJ): array;
 
-    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | false;
+    public function fetch(int $fetchStyle = PDO::FETCH_OBJ): object | array | string | false;
 
-    public function fetchColumn(): object | false;
+    /**
+     * Returns a first column of the next results row.
+     * 
+     * If there are no more results returns `false.
+     * 
+     * Please note `false` can be also a valid value of the ASK query.
+     * 
+     * @return object|bool
+     */
+    public function fetchColumn(): object | bool;
 }

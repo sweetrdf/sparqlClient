@@ -85,7 +85,7 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $df    = new DataFactory();
         $c     = new StandardConnection('https://query.wikidata.org/sparql', $df);
         $query = 'ask {<http://foo> <http://bar> <http://baz>}';
-        $this->assertFalse($c->askQuery($query));
+        $this->assertFalse($c->query($query)->fetchColumn());
     }
 
     public function testPrepare(): void {
@@ -105,21 +105,7 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $df = new DataFactory();
         $c  = new StandardConnection('https://query.wikidata.org/sparql', $df);
 
-        $query = 'select ?a ?b ?c where {?a ?b ?c} limit 10';
-        try {
-            $c->askQuery($query);
-            $this->assertTrue(false);
-        } catch (SparqlException $ex) {
-            $this->assertStringStartsWith('Not an ASK query response', $ex->getMessage());
-        }
-
         $query = 'wrongQuery';
-        try {
-            $c->askQuery($query);
-            $this->assertTrue(false);
-        } catch (SparqlException $ex) {
-            $this->assertStringStartsWith('Query execution failed with HTTP', $ex->getMessage());
-        }
         try {
             $c->query($query);
             $this->assertTrue(false);

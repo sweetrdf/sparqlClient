@@ -59,16 +59,8 @@ class StandardConnection implements SimpleConnectionInterface {
         return $this->connection->query($this->getRequest($query));
     }
 
-    public function askQuery(string $query): bool {
-        return $this->connection->askQuery($this->getRequest($query));
-    }
-
     public function prepare(string $query): PreparedStatement {
         return new PreparedStatement($query, $this, false);
-    }
-
-    public function prepareAsk(string $query): PreparedStatement {
-        return new PreparedStatement($query, $this, true);
     }
 
     private function getRequest(string $query): RequestInterface {
