@@ -18,8 +18,8 @@
         "psr/http-client": "^1.0",
         "halaxa/json-machine": "^1.1.3",
         "guzzlehttp/guzzle": "^7.2",
-        "sweetrdf/rdf-interface": "^1.0.0",
-        "sweetrdf/rdf-helpers": "^1.0.0"
+        "sweetrdf/rdf-interface": "^1.0.0 | ^2.0.0-RC1",
+        "sweetrdf/rdf-helpers": "^1.0.2"
     },
     "suggest": {
         "http-interop/http-factory-guzzle": "^1.0",
@@ -37,7 +37,7 @@
         "squizlabs/php_codesniffer": "*",
         "php-coveralls/php-coveralls": "^2.4",
         "http-interop/http-factory-guzzle": "^1.0",
-        "sweetrdf/quick-rdf": "^1.0.0"
+        "sweetrdf/quick-rdf": "^1.0.0 | ^2.0.0-RC1"
     },
     "autoload-dev": {
         "psr-4": {
