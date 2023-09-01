@@ -586,6 +586,46 @@ Search.appendIndex(
             "summary": "Fetches\u0020an\u0020iterator\u0020over\u0020unique\u0020set\u0020of\u0020dataset\u0020quad\u0020graphs.",
             "url": "classes/rdfInterface-DatasetInterface.html#method_listGraphs"
         },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetSubject\u0028\u0029",
+            "name": "getSubject",
+            "summary": "Fetches\u0020subject\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getSubject"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetPredicate\u0028\u0029",
+            "name": "getPredicate",
+            "summary": "Fetches\u0020subject\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getPredicate"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetObject\u0028\u0029",
+            "name": "getObject",
+            "summary": "Fetches\u0020object\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getObject"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetGraph\u0028\u0029",
+            "name": "getGraph",
+            "summary": "Fetches\u0020graph\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getGraph"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetSubjectValue\u0028\u0029",
+            "name": "getSubjectValue",
+            "summary": "Returns\u0020result\u0020of\u0020calling\u0020the\u0020getValue\u0028\u0029\u0020method\u0020on\u0020a\u0020subject\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getSubjectValue"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetPredicateValue\u0028\u0029",
+            "name": "getPredicateValue",
+            "summary": "Returns\u0020result\u0020of\u0020calling\u0020the\u0020getValue\u0028\u0029\u0020method\u0020on\u0020a\u0020subject\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getPredicateValue"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetObjectValue\u0028\u0029",
+            "name": "getObjectValue",
+            "summary": "Returns\u0020result\u0020of\u0020calling\u0020the\u0020getValue\u0028\u0029\u0020method\u0020on\u0020a\u0020subject\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getObjectValue"
+        },                {
+            "fqsen": "\\rdfInterface\\DatasetInterface\u003A\u003AgetGraphValue\u0028\u0029",
+            "name": "getGraphValue",
+            "summary": "Returns\u0020result\u0020of\u0020calling\u0020the\u0020getValue\u0028\u0029\u0020method\u0020on\u0020a\u0020subject\u0020of\u0020a\u0020first\u0020quad\u0020matching\u0020a\u0020given\u0020filter\u0020or\u0020null\u0020if\u0020no\u0020quad\u0020matches\u0020the\u0020filter.",
+            "url": "classes/rdfInterface-DatasetInterface.html#method_getGraphValue"
+        },                {
             "fqsen": "\\rdfInterface\\DatasetNodeInterface",
             "name": "DatasetNodeInterface",
             "summary": "Node\u002Doriented\u0020graph\u0020API\u0020interface.",
@@ -895,6 +935,11 @@ Search.appendIndex(
             "name": "equals",
             "summary": "",
             "url": "classes/rdfInterface-TermCompareInterface.html#method_equals"
+        },                {
+            "fqsen": "\\rdfInterface\\TermCompareInterface\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Should\u0020return\u003A",
+            "url": "classes/rdfInterface-TermCompareInterface.html#method___toString"
         },                {
             "fqsen": "\\rdfInterface\\TermInterface",
             "name": "TermInterface",
