@@ -151,13 +151,12 @@ class PreparedStatement implements StatementInterface {
             if (isset($matches[2])) {
                 $pn   = $n;
                 $from = '?';
-                $to   = $param[$pn] ?? null;
                 $n++;
             } else {
                 $pn   = $matches[1];
                 $from = ":$pn";
-                $to   = $this->escapeValue($pn);
             }
+            $to = $this->escapeValue($pn);
             if ($to === null) {
                 throw new SparqlException("Parameter $pn value missing");
             }

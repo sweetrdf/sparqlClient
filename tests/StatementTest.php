@@ -99,9 +99,9 @@ class StatementTest extends \PHPUnit\Framework\TestCase {
         $r = $stmt->fetch(PDO::FETCH_OBJ);
         $this->assertIsObject($r);
         $this->assertCount(3, get_object_vars($r));
-        $this->assertObjectHasAttribute('a', $r);
-        $this->assertObjectHasAttribute('b', $r);
-        $this->assertObjectHasAttribute('c', $r);
+        $this->assertObjectHasProperty('a', $r);
+        $this->assertObjectHasProperty('b', $r);
+        $this->assertObjectHasProperty('c', $r);
 
         $r = $stmt->fetch(PDO::FETCH_COLUMN);
         if ($format === 'text/csv') {

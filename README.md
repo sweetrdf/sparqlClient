@@ -58,8 +58,8 @@ $connection = new \sparqlClient\StandardConnection('https://query.wikidata.org/s
 // the single `?` is a positional parameter while the `:sf` is a named parameter
 $query      = $connection->prepare('SELECT * WHERE {?a ? ?c . ?a :sf ?d .} LIMIT 10');
 $query->execute([
-    $factory->namedNode('http://creativecommons.org/ns#license'),
-    'sf' => $factory->namedNode('http://schema.org/softwareVersion'),
+    $factory::namedNode('http://creativecommons.org/ns#license'),
+    'sf' => $factory::namedNode('http://schema.org/softwareVersion'),
 ]);
 foreach ($query as $i) {
     print_r($i);
@@ -67,13 +67,13 @@ foreach ($query as $i) {
 
 // bind a (positional) parameter to a variable
 $query = $connection->prepare('SELECT * WHERE {?a ? ?c .} LIMIT 2');
-$value = $factory->namedNode('http://creativecommons.org/ns#license');
+$value = $factory::namedNode('http://creativecommons.org/ns#license');
 $query->bindParam(0, $value);
 $query->execute();
 foreach ($query as $i) {
     print_r($i);
 }
-$value = $factory->namedNode('http://schema.org/softwareVersion');
+$value = $factory::namedNode('http://schema.org/softwareVersion');
 $query->execute();
 foreach ($query as $i) {
     print_r($i);

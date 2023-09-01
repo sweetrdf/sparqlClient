@@ -27,7 +27,7 @@
 namespace sparqlClient;
 
 use PDO;
-use quickRdf\DataFactory;
+use quickRdf\DataFactory as DF;
 use rdfInterface\TermInterface;
 
 /**
@@ -38,11 +38,10 @@ use rdfInterface\TermInterface;
 class SparqlTest extends \PHPUnit\Framework\TestCase {
 
     public function testSelect(): void {
-        $df    = new DataFactory();
-        $c     = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $c     = new StandardConnection('https://query.wikidata.org/sparql', new DF());
         $query = 'select ?a ?b ?c where {?a ?b ?c} limit 10';
 
-        $s  = $c->query($query);
+        $s = $c->query($query);
         $d = iterator_to_array($s);
         $this->assertCount(10, $d);
         foreach ($d as $i) {
@@ -53,28 +52,25 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
     }
 
     public function testAsk(): void {
-        $df    = new DataFactory();
-        $c     = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $c     = new StandardConnection('https://query.wikidata.org/sparql', new DF());
         $query = 'ask {<http://foo> <http://bar> <http://baz>}';
         $this->assertFalse($c->query($query)->fetchColumn());
     }
 
     public function testPrepare(): void {
-        $df = new DataFactory();
-        $c  = new StandardConnection('https://query.wikidata.org/sparql', $df);
-        $q  = $c->prepare('SELECT * WHERE {?a ? ?c . ?a :sf ?d . ?a ? ?e} LIMIT 1');
+        $c = new StandardConnection('https://query.wikidata.org/sparql', new DF());
+        $q = $c->prepare('SELECT * WHERE {?a ? ?c . ?a :sf ?d . ?a ? ?e} LIMIT 1');
         $q->execute([
-            $df->namedNode('http://creativecommons.org/ns#license'),
-            $df->namedNode('http://schema.org/dateModified'),
-            'sf' => $df->namedNode('http://schema.org/softwareVersion'),
+            DF::namedNode('http://creativecommons.org/ns#license'),
+            DF::namedNode('http://schema.org/dateModified'),
+            'sf' => DF::namedNode('http://schema.org/softwareVersion'),
         ]);
-        $r  = $q->fetchAll();
+        $r = $q->fetchAll();
         $this->assertCount(1, $r);
     }
 
     public function testExceptions(): void {
-        $df = new DataFactory();
-        $c  = new StandardConnection('https://query.wikidata.org/sparql', $df);
+        $c = new StandardConnection('https://query.wikidata.org/sparql', new DF());
 
         $query = 'wrongQuery';
         try {
@@ -87,7 +83,7 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         $query = "";
         try {
             $q = $c->prepare($query);
-            $q->execute([$df->literal('foo')]);
+            $q->execute([DF::literal('foo')]);
         } catch (SparqlException $ex) {
             $this->assertEquals('Unknown parameter 0', $ex->getMessage());
         }
@@ -99,11 +95,11 @@ class SparqlTest extends \PHPUnit\Framework\TestCase {
         } catch (SparqlException $ex) {
             $this->assertEquals('Parameter 0 value missing', $ex->getMessage());
         }
-        
+
         $query = "? :p ";
         try {
             $q = $c->prepare($query);
-            $q->execute([$df->literal('foo')]);
+            $q->execute([DF::literal('foo')]);
         } catch (SparqlException $ex) {
             $this->assertEquals('Parameter p value missing', $ex->getMessage());
         }
