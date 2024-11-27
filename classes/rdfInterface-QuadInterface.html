@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/sparqlclient.html" class="">sparqlClient</a>
@@ -65,7 +65,7 @@
 </h4>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -73,14 +73,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -109,19 +109,13 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-quadinterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php">QuadInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Extends Term because of RDF*</p>
+            <p class="phpdocumentor-summary">Description of RdfTerm</p>
 
-    <section class="phpdocumentor-description"><p>Remarks:</p>
-<ul>
-<li>getValue() should throw an error</li>
-<li>null return types in getSubject(), getPredicate() and getObject() make it
-possible for QuadTemplate to extend this interface</li>
-</ul>
-</section>
+
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -139,7 +133,9 @@ possible for QuadTemplate to extend this interface</li>
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+
 
 
 
@@ -165,20 +161,20 @@ possible for QuadTemplate to extend this interface</li>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-TermCompareInterface.html#method___toString">__toString()</a>
+    <a class="" href="classes/rdfInterface-TermCompareInterface.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Should return:</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-TermCompareInterface.html#method_equals">equals()</a>
+    <a class="" href="classes/rdfInterface-TermCompareInterface.html#method_equals">equals()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_getGraph">getGraph()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_getGraph">getGraph()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a>|<a href="classes/rdfInterface-BlankNodeInterface.html"><abbr title="\rdfInterface\BlankNodeInterface">BlankNodeInterface</abbr></a>|<a href="classes/rdfInterface-DefaultGraphInterface.html"><abbr title="\rdfInterface\DefaultGraphInterface">DefaultGraphInterface</abbr></a>    </span>
 </dt>
@@ -187,49 +183,50 @@ null which mean the same (although it should be noted that all quads in
 NamedNode/BlankNode graphs also belong to the DefaultGraph).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_getObject">getObject()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_getObject">getObject()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-TermInterface.html"><abbr title="\rdfInterface\TermInterface">TermInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_getPredicate">getPredicate()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_getPredicate">getPredicate()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_getSubject">getSubject()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_getSubject">getSubject()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-TermInterface.html"><abbr title="\rdfInterface\TermInterface">TermInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-TermInterface.html#method_getValue">getValue()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_getValue">getValue()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Should always throw the \BadMethodCallException</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_withGraph">withGraph()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_withGraph">withGraph()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-QuadInterface.html"><abbr title="\rdfInterface\QuadInterface">QuadInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_withObject">withObject()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_withObject">withObject()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-QuadInterface.html"><abbr title="\rdfInterface\QuadInterface">QuadInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_withPredicate">withPredicate()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_withPredicate">withPredicate()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-QuadInterface.html"><abbr title="\rdfInterface\QuadInterface">QuadInterface</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-QuadInterface.html#method_withSubject">withSubject()</a>
+    <a class="" href="classes/rdfInterface-QuadInterface.html#method_withSubject">withSubject()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-QuadInterface.html"><abbr title="\rdfInterface\QuadInterface">QuadInterface</abbr></a>    </span>
 </dt>
@@ -273,6 +270,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><ul>
 <li>an URI for named nodes and blank nodes</li>
 <li>a value in lexical form for literals</li>
@@ -281,6 +279,8 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</dd>
 </section>
 
     
+    
+
     
 
             <section>
@@ -315,6 +315,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -325,6 +326,8 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</dd>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -365,6 +368,9 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -386,7 +392,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-quadinterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php">QuadInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -399,6 +405,9 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -421,7 +430,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-quadinterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php">QuadInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -434,6 +443,9 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -456,7 +468,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-quadinterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php">QuadInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -469,6 +481,9 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
         </div>
     
     
+    
+    
+
     
 
             <section>
@@ -485,17 +500,18 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_getValue">
         getValue()
-        <a href="classes/rdfInterface-TermInterface.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/rdfInterface-QuadInterface.html#method_getValue" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/TermInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-terminterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/TermInterface.php">TermInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-quadinterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/QuadInterface.php">QuadInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Should always throw the \BadMethodCallException</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getValue</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -504,6 +520,24 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
         </div>
     
     
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/rdfInterface-QuadInterface.html#method_getValue#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\BadMethodCallException">BadMethodCallException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
     
 
     
@@ -534,6 +568,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -544,6 +579,8 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -579,6 +616,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -589,6 +627,8 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -624,6 +664,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -634,6 +675,8 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -669,6 +712,7 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -679,6 +723,8 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -800,17 +846,17 @@ NamedNode/BlankNode graphs also belong to the DefaultGraph).</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/rdfInterface-TermCompareInterface.html#method___toString">__toString()</a></li>
-                                                    <li><a href="classes/rdfInterface-TermCompareInterface.html#method_equals">equals()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_getGraph">getGraph()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_getObject">getObject()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_getPredicate">getPredicate()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_getSubject">getSubject()</a></li>
-                                                    <li><a href="classes/rdfInterface-TermInterface.html#method_getValue">getValue()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_withGraph">withGraph()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_withObject">withObject()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_withPredicate">withPredicate()</a></li>
-                                                    <li><a href="classes/rdfInterface-QuadInterface.html#method_withSubject">withSubject()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-TermCompareInterface.html#method___toString">__toString()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-TermCompareInterface.html#method_equals">equals()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_getGraph">getGraph()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_getObject">getObject()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_getPredicate">getPredicate()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_getSubject">getSubject()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_getValue">getValue()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_withGraph">withGraph()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_withObject">withObject()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_withPredicate">withPredicate()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-QuadInterface.html#method_withSubject">withSubject()</a></li>
                                             </ul>
                 </li>
             

@@ -54,7 +54,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/sparqlclient.html" class="">sparqlClient</a>
@@ -65,7 +65,7 @@
 </h4>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -73,14 +73,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -113,6 +113,7 @@
         
 
 
+
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
         <a href="classes/rdfInterface-DataFactoryInterface.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
@@ -128,7 +129,9 @@
 </section>
 
                                     </dd>
-                                            </dl>
+                                                                </dl>
+
+
 
 
 
@@ -154,39 +157,46 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-DataFactoryInterface.html#method_blankNode">blankNode()</a>
+    <a class="" href="classes/rdfInterface-DataFactoryInterface.html#method_blankNode">blankNode()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-BlankNodeInterface.html"><abbr title="\rdfInterface\BlankNodeInterface">BlankNodeInterface</abbr></a>    </span>
 </dt>
 <dd>Creates a new RDF blank node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-DataFactoryInterface.html#method_defaultGraph">defaultGraph()</a>
+    <a class="" href="classes/rdfInterface-DataFactoryInterface.html#method_defaultGraph">defaultGraph()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-DefaultGraphInterface.html"><abbr title="\rdfInterface\DefaultGraphInterface">DefaultGraphInterface</abbr></a>    </span>
 </dt>
 <dd>Returns an RDF default graph object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-DataFactoryInterface.html#method_literal">literal()</a>
+    <a class="" href="classes/rdfInterface-DataFactoryInterface.html#method_literal">literal()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-LiteralInterface.html"><abbr title="\rdfInterface\LiteralInterface">LiteralInterface</abbr></a>    </span>
 </dt>
 <dd>Creates a new RDF literal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-DataFactoryInterface.html#method_namedNode">namedNode()</a>
+    <a class="" href="classes/rdfInterface-DataFactoryInterface.html#method_namedNode">namedNode()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a>    </span>
 </dt>
 <dd>Creates a new RDF named node.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/rdfInterface-DataFactoryInterface.html#method_quad">quad()</a>
+    <a class="" href="classes/rdfInterface-DataFactoryInterface.html#method_quad">quad()</a>
     <span>
                                 &nbsp;: <a href="classes/rdfInterface-QuadInterface.html"><abbr title="\rdfInterface\QuadInterface">QuadInterface</abbr></a>    </span>
 </dt>
 <dd>Creates a new RDF quad.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/rdfInterface-DataFactoryInterface.html#method_quadNoSubject">quadNoSubject()</a>
+    <span>
+                                &nbsp;: <a href="classes/rdfInterface-QuadNoSubjectInterface.html"><abbr title="\rdfInterface\QuadNoSubjectInterface">QuadNoSubjectInterface</abbr></a>    </span>
+</dt>
+<dd>Creates a new RDF quadNoSubject.</dd>
 
     </dl>
 
@@ -228,6 +238,7 @@
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -238,6 +249,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -276,6 +289,9 @@
     
     
     
+    
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -309,6 +325,7 @@
 
     <div class="phpdocumentor-label-line">
         </div>
+    
         <section class="phpdocumentor-description"><p>If the $datatype is null or empty, it must be set according to the
 $value and $lang parameter values:</p>
 <ul>
@@ -384,6 +401,8 @@ The detailed procedure is described above.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/rdfInterface-LiteralInterface.html"><abbr title="\rdfInterface\LiteralInterface">LiteralInterface</abbr></a></span>
@@ -417,6 +436,7 @@ The detailed procedure is described above.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -427,6 +447,8 @@ The detailed procedure is described above.</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -463,6 +485,7 @@ The detailed procedure is described above.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -497,9 +520,74 @@ The detailed procedure is described above.</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/rdfInterface-QuadInterface.html"><abbr title="\rdfInterface\QuadInterface">QuadInterface</abbr></a></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_quadNoSubject">
+        quadNoSubject()
+        <a href="classes/rdfInterface-DataFactoryInterface.html#method_quadNoSubject" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="vendor/sweetrdf/rdf-interface/src/rdfInterface/DataFactoryInterface.php"><a href="files/vendor-sweetrdf-rdf-interface-src-rdfinterface-datafactoryinterface.html"><abbr title="vendor/sweetrdf/rdf-interface/src/rdfInterface/DataFactoryInterface.php">DataFactoryInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">125</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Creates a new RDF quadNoSubject.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">quadNoSubject</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$predicate</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-TermInterface.html"><abbr title="\rdfInterface\TermInterface">TermInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$object</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a>|<a href="classes/rdfInterface-BlankNodeInterface.html"><abbr title="\rdfInterface\BlankNodeInterface">BlankNodeInterface</abbr></a>|<a href="classes/rdfInterface-DefaultGraphInterface.html"><abbr title="\rdfInterface\DefaultGraphInterface">DefaultGraphInterface</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$graph</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/rdfInterface-QuadNoSubjectInterface.html"><abbr title="\rdfInterface\QuadNoSubjectInterface">QuadNoSubjectInterface</abbr></a></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$predicate</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$object</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-TermInterface.html"><abbr title="\rdfInterface\TermInterface">TermInterface</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$graph</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/rdfInterface-NamedNodeInterface.html"><abbr title="\rdfInterface\NamedNodeInterface">NamedNodeInterface</abbr></a>|<a href="classes/rdfInterface-BlankNodeInterface.html"><abbr title="\rdfInterface\BlankNodeInterface">BlankNodeInterface</abbr></a>|<a href="classes/rdfInterface-DefaultGraphInterface.html"><abbr title="\rdfInterface\DefaultGraphInterface">DefaultGraphInterface</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/rdfInterface-QuadNoSubjectInterface.html"><abbr title="\rdfInterface\QuadNoSubjectInterface">QuadNoSubjectInterface</abbr></a></span>
             </section>
 
 </article>
@@ -615,11 +703,12 @@ The detailed procedure is described above.</p>
                             <li class="phpdocumentor-on-this-page-section__title">Methods</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/rdfInterface-DataFactoryInterface.html#method_blankNode">blankNode()</a></li>
-                                                    <li><a href="classes/rdfInterface-DataFactoryInterface.html#method_defaultGraph">defaultGraph()</a></li>
-                                                    <li><a href="classes/rdfInterface-DataFactoryInterface.html#method_literal">literal()</a></li>
-                                                    <li><a href="classes/rdfInterface-DataFactoryInterface.html#method_namedNode">namedNode()</a></li>
-                                                    <li><a href="classes/rdfInterface-DataFactoryInterface.html#method_quad">quad()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-DataFactoryInterface.html#method_blankNode">blankNode()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-DataFactoryInterface.html#method_defaultGraph">defaultGraph()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-DataFactoryInterface.html#method_literal">literal()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-DataFactoryInterface.html#method_namedNode">namedNode()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-DataFactoryInterface.html#method_quad">quad()</a></li>
+                                                    <li class=""><a href="classes/rdfInterface-DataFactoryInterface.html#method_quadNoSubject">quadNoSubject()</a></li>
                                             </ul>
                 </li>
             
