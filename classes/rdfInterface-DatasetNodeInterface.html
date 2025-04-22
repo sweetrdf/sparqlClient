@@ -820,8 +820,7 @@ $includeOther parameter value;</p>
 dataset node's node are removed.</p>
 <p>The $filter can be specified as:</p>
 <ul>
-<li>
-<code class="prettyprint">null</code> meaning &quot;remove all&quot;.</li>
+<li><code class="prettyprint">null</code> meaning &quot;remove all&quot;.</li>
 <li>An object implementing the \rdfInterface\QuadCompareInterface
 (e.g. a single quad)</li>
 <li>An object implementing the \rdfInterface\QuadIteratorInterface
@@ -1186,8 +1185,7 @@ use the `(new DatasetNodeInterface($node))-&gt;withDataset($dataset).</li>
         <section class="phpdocumentor-description"><p>All quads with subject matching dataset node's node and the $filter parameter are modified.</p>
 <p>The $filter can be specified as:</p>
 <ul>
-<li>
-<code class="prettyprint">null</code> which matches all quads.</li>
+<li><code class="prettyprint">null</code> which matches all quads.</li>
 <li>An object implementing the \rdfInterface\QuadCompareInterface
 (e.g. a single quad)</li>
 <li>An object implementing the \rdfInterface\QuadIteratorInterface
@@ -1394,8 +1392,7 @@ dataset node&#039;s node and optionally matching a given filter.</p>
     
         <section class="phpdocumentor-description"><p>The $filter can be specified as:</p>
 <ul>
-<li>
-<code class="prettyprint">null</code> matches all quads.</li>
+<li><code class="prettyprint">null</code> matches all quads.</li>
 <li>An object implementing the \rdfInterface\QuadCompareInterface
 (e.g. a single quad)</li>
 <li>An object implementing the \rdfInterface\QuadIteratorInterface
@@ -2145,8 +2142,7 @@ which subject matching dataset node&#039;s node.</p>
 signature. Matching quads are the ones for which the callable returns
 <code class="prettyprint">true</code>.
 If more than one quad is matched \UnexpectedValueException must be thrown.</li>
-<li>
-<code class="prettyprint">0</code>. This is a shorthand syntax for checking if the dataset node contains
+<li><code class="prettyprint">0</code>. This is a shorthand syntax for checking if the dataset node contains
 any quad with subject matching dataset node's node.</li>
 </ul>
 <p>If the $offset is specified differently, \UnexpectedValueException is thrown.</p>
@@ -2234,8 +2230,7 @@ node&#039;s node.</p>
 <li>A callable with the <code class="prettyprint">fn(\rdfInterface\Quad, \rdfInterface\Dataset): bool</code>
 signature. Matching quads are the ones for which the callable returns
 <code class="prettyprint">true</code>.</li>
-<li>
-<code class="prettyprint">0</code> Returns any single quad.
+<li><code class="prettyprint">0</code> Returns any single quad.
 The main use case is enabling the <code class="prettyprint">$dataset[0] ?? $defaultQuad</code> syntax
 for &quot;unpacking&quot; a dataset containing one or zero quads.
 As quads within a dataset don't have order, it makes no sense to access
@@ -2326,8 +2321,7 @@ matching dataset node&#039;s node.</p>
         <section class="phpdocumentor-description"><p>The new quad may have a different subject.</p>
 <p>Offset can be specified as:</p>
 <ul>
-<li>
-<code class="prettyprint">null</code> which is just a shorthand to <code class="prettyprint">add($value)</code>. In this case the
+<li><code class="prettyprint">null</code> which is just a shorthand to <code class="prettyprint">add($value)</code>. In this case the
 $value subject does not need to match dataset node's node.</li>
 <li>An object implementing the \rdfInterface\QuadCompare interface.
 If more than one quad is matched \OutOfBoundsException must be thrown.</li>

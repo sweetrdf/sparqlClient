@@ -138,9 +138,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>\ArrayAccess&lt;QuadInterface|QuadIteratorInterface|callable|int&lt;0, 0&gt;, QuadInterface&gt;</p>
-</section>
-
+                                             
                                     </dd>
                                                                 </dl>
 
@@ -982,8 +980,7 @@ All quads for which the callable returns true are copied.</li>
         <section class="phpdocumentor-description"><p>All quads matching the $filter parameter are modified.</p>
 <p>The $filter can be specified as:</p>
 <ul>
-<li>
-<code class="prettyprint">null</code> which matches all quads.</li>
+<li><code class="prettyprint">null</code> which matches all quads.</li>
 <li>An object implementing the \rdfInterface\QuadCompareInterface
 (e.g. a single quad)</li>
 <li>An object implementing the \rdfInterface\QuadIteratorInterface
@@ -1800,8 +1797,7 @@ callback function.</p>
 signature. Matching quads are the ones for which the callable returns
 <code class="prettyprint">true</code>.
 If more than one quad is matched \UnexpectedValueException must be thrown.</li>
-<li>
-<code class="prettyprint">0</code>. This is a shorthand syntax for checking if the dataset is empty.</li>
+<li><code class="prettyprint">0</code>. This is a shorthand syntax for checking if the dataset is empty.</li>
 </ul>
 <p>If the $offset is specified differently, \UnexpectedValueException is thrown.</p>
 <p>If exactly one quad is matched, <code class="prettyprint">true</code> is returned.</p>
@@ -1887,8 +1883,7 @@ If more than one quad is matched \UnexpectedValueException must be thrown.</li>
 <li>A callable with the <code class="prettyprint">fn(\rdfInterface\Quad, \rdfInterface\Dataset): bool</code>
 signature. Matching quads are the ones for which the callable returns
 <code class="prettyprint">true</code>.</li>
-<li>
-<code class="prettyprint">0</code> Returns any single quad.
+<li><code class="prettyprint">0</code> Returns any single quad.
 The main use case is enabling the <code class="prettyprint">$dataset[0] ?? $defaultQuad</code> syntax
 for &quot;unpacking&quot; a dataset containing one or zero quads.
 As quads within a dataset don't have order, it makes no sense to access
@@ -1976,9 +1971,7 @@ throw an \UnexpectedValueException.</li>
     
         <section class="phpdocumentor-description"><p>Offset can be specified as:</p>
 <ul>
-<li>
-<code class="prettyprint">null</code> which is just a shorthand to <code class="prettyprint">add($value)</code>
-</li>
+<li><code class="prettyprint">null</code> which is just a shorthand to <code class="prettyprint">add($value)</code></li>
 <li>An object implementing the \rdfInterface\QuadCompare interface.
 If more than one quad is matched \UnexpectedValueException must be thrown.</li>
 <li>A callable with the <code class="prettyprint">fn(\rdfInterface\Quad, \rdfInterface\Dataset): bool</code>
