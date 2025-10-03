@@ -95,14 +95,12 @@
         <h2 class="phpdocumentor-content__title">StandardConnection.php</h2>
 
         
+        
+        
+        
 
 
-
-
-
-
-
-
+        
 <h3 id="toc">
     Table of Contents
     <a href="files/src-sparqlclient-standardconnection.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -121,7 +119,6 @@
                     <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/sparqlClient-StandardConnection.html"><abbr title="\sparqlClient\StandardConnection">StandardConnection</abbr></a></dt><dd>SPARQL endpoint connection class assuming query can be passed as a &quot;query&quot;
 parameter of a POST request (which isn&#039;t guaranteed by any SPARQL standard
 but is a de facto standard for SPARQL database REST API implementations).</dd>    </dl>
-
 
 
 
@@ -170,6 +167,8 @@ but is a de facto standard for SPARQL database REST API implementations).</dd>  
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 

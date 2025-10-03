@@ -95,14 +95,12 @@
         <h2 class="phpdocumentor-content__title">Statement.php</h2>
 
         
+        
+        
+        
 
 
-
-
-
-
-
-
+        
 <h3 id="toc">
     Table of Contents
     <a href="files/src-sparqlclient-statement.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -120,7 +118,6 @@
     <dl class="phpdocumentor-table-of-contents">
                     <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/sparqlClient-Statement.html"><abbr title="\sparqlClient\Statement">Statement</abbr></a></dt><dd>For results data reference see https://www.w3.org/TR/sparql11-results-json/
 and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-results-json-format</dd>            <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/sparqlClient-BindingElement.html"><abbr title="\sparqlClient\BindingElement">BindingElement</abbr></a></dt>    </dl>
-
 
 
 
@@ -169,6 +166,8 @@ and https://w3c.github.io/rdf-star/cg-spec/editors_draft.html#sparql-star-query-
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 
